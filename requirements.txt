@@ -5,3 +5,4 @@ networkx
 matplotlib
 seaborn
 numpy
+beautifulsoup4
