@@ -1,0 +1,199 @@
+import pandas as pd
+import re
+from bs4 import BeautifulSoup
+from gliner import GLiNER
+import json
+
+# 1. Preprocessing of data
+
+def normalize_heading(heading):
+    """Normalize heading by removing spaces, tags, punctuation and making lowercase"""
+    # Remove HTML tags
+    heading = re.sub(r'<[^>]+>', '', heading)
+    # Remove spaces and punctuation
+    heading = re.sub(r'[^\w]', '', heading)
+    # Make lowercase
+    return heading.lower()
+
+def extract_section_content(html_text, section_headings):
+    """Extract content following specific section headings"""
+    if pd.isna(html_text):
+        return ""
+    
+    # Normalize target headings
+    normalized_targets = [normalize_heading(h) for h in section_headings]
+    
+    # Find all h4 sections
+    soup = BeautifulSoup(html_text, 'html.parser')
+    h4_tags = soup.find_all('h4')
+    
+    content = []
+    for i, h4 in enumerate(h4_tags):
+        heading_text = h4.get_text()
+        normalized_heading = normalize_heading(heading_text)
+        
+        # Check if this heading matches our targets
+        if normalized_heading in normalized_targets:
+            # Get content until next h4 or end
+            current = h4.next_sibling
+            section_content = []
+            
+            while current:
+                if current.name == 'h4':
+                    break
+                if hasattr(current, 'get_text'):
+                    section_content.append(current.get_text())
+                elif isinstance(current, str):
+                    section_content.append(current)
+                current = current.next_sibling
+            
+            content.append(' '.join(section_content))
+    
+    return ' '.join(content).strip()
+
+# Load dataset
+df = pd.read_csv('data/teachers_db_practice.csv')
+
+# Create a copy with new columns
+df_processed = df.copy()
+
+# Define normalized heading categories (duplicates removed)
+academic_experience_headings = [
+    "academicexperience", "acamicexperience", "teachingandresearchexperience",
+    "coursesacademicexperience", "executiveeducation", "subject", 
+    "acdemicexperience", "academicandresearchexperience",
+    "visitingscholaratthefollowinguniversities", "assistantprofessoreconomics",
+    "teachingandresearchexperience", "academicandprofessionalexperience",
+    "assistantprofessoroperationstechnology", "position",
+    "assistantprofessoreconomía", "professionalteachingexperience",
+    "experience", "course", "professionalexamination"
+]
+
+academic_background_headings = [
+    "academicbackground", "education", "acamicbackground",
+    "researchareas", "academicandresearchexperience", "awards", 
+    "awardsandrecognitions", "selectedpublications", "honorsawards",
+    "awardsgrants", "achievements", "educationprofessionalqualifications",
+    "academicbackgound", "latestpublications", "publications", 
+    "mainpublications", "formaciónacadémica", "academicbackground"
+]
+
+corporate_experience_headings = [
+    "corporateexperience", "professionalexperience", "corporativeexperience",
+    "professionalbackground", "corporateandotherprofessionalexperience",
+    "mainprojects", "academicandprofessionalexperience", 
+    "professionalteachingexperience", "experience", "industryawards"
+]
+
+# Extract sections for each row
+df_processed['academic_experience'] = df_processed['full_info'].apply(
+    lambda x: extract_section_content(x, academic_experience_headings)
+)
+
+df_processed['academic_background'] = df_processed['full_info'].apply(
+    lambda x: extract_section_content(x, academic_background_headings)
+)
+
+df_processed['corporate_experience'] = df_processed['full_info'].apply(
+    lambda x: extract_section_content(x, corporate_experience_headings)
+)
+
+# Save processed dataset
+df_processed.to_csv('data/teachers_db_processed.csv', index=False)
+
+print(f"Processed {len(df_processed)} rows")
+print(f"Academic Experience sections found: {(df_processed['academic_experience'] != '').sum()}")
+print(f"Academic Background sections found: {(df_processed['academic_background'] != '').sum()}")
+print(f"Corporate Experience sections found: {(df_processed['corporate_experience'] != '').sum()}")
+
+# # Show sample results
+# print("\nSample results:")
+# for i in range(3):
+#     if i < len(df_processed):
+#         print(f"\nRow {i} - {df_processed.iloc[i]['alias']}:")
+#         print(f"Academic Experience: {df_processed.iloc[i]['academic_experience'][:100]}...")
+#         print(f"Academic Background: {df_processed.iloc[i]['academic_background'][:100]}...")
+#         print(f"Corporate Experience: {df_processed.iloc[i]['corporate_experience'][:100]}...")
+
+
+
+# 2. NER per field
+
+model = GLiNER.from_pretrained("urchade/gliner_mediumv2.1")
+model.eval()
+print("GLiNER model loaded!")
+
+# Define labels for each column
+academic_experience_labels = [
+    "subject or course taught by professor", 
+    "academic program or degree level taught", 
+    "teaching institution or university where professor works"
+]
+
+academic_background_labels = [
+    "educational institution where studied", 
+    "location of educational institution", 
+    "academic degree or qualification earned", 
+    "years of study or graduation year"
+]
+
+corporate_experience_labels = [
+    "employer company or organization", 
+    "workplace location or company headquarters"
+]
+
+# Process each row and extract entities
+results = []
+
+for idx, row in df_processed.iterrows():
+    row_result = {
+        "row_id": idx,
+        "alias": row.get('alias', ''),
+        "academic_experience": [],
+        "academic_background": [],
+        "corporate_experience": []
+    }
+    
+    # Academic Experience NER
+    if row['academic_experience'].strip():
+        entities = model.predict_entities(row['academic_experience'], academic_experience_labels, threshold=0.4)
+        for entity in entities:
+            row_result["academic_experience"].append({
+                "text": entity["text"],
+                "label": entity["label"]
+            })
+    
+    # Academic Background NER
+    if row['academic_background'].strip():
+        entities = model.predict_entities(row['academic_background'], academic_background_labels, threshold=0.4)
+        for entity in entities:
+            row_result["academic_background"].append({
+                "text": entity["text"],
+                "label": entity["label"]
+            })
+    
+    # Corporate Experience NER
+    if row['corporate_experience'].strip():
+        entities = model.predict_entities(row['corporate_experience'], corporate_experience_labels, threshold=0.4)
+        for entity in entities:
+            row_result["corporate_experience"].append({
+                "text": entity["text"],
+                "label": entity["label"]
+            })
+    
+    results.append(row_result)
+    
+    if idx % 50 == 0:
+        print(f"Processed {idx} rows...")
+
+# Save results to JSON
+with open('gliner_entities_results.json', 'w') as f:
+    json.dump(results, f, indent=2)
+
+print(f"\nCompleted NER extraction for {len(results)} rows")
+print("Results saved to gliner_entities_results.json")
+
+
+
+
+
