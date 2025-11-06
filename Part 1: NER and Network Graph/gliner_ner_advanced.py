@@ -4,6 +4,18 @@ from bs4 import BeautifulSoup
 from gliner import GLiNER
 import json
 
+
+# revisar mi primer approach con regex, y hacer 
+# formateorlo bien
+# juntar con GLiNER (todos de todos)
+
+#filtrar los valores de cada categorias mas freecuentes para que el graph sea representativo. 
+#unique count de todos los valores de cada categoria y cambiar los valores menos frecuentes por "other", threshold = 10% 
+#probar el graph 
+#usar distancias levenstans para ver si se repiten entidades que son iguales pero que estan expresadas de forma diferente. ej: NY or New York
+
+
+
 # 1. Preprocessing of data
 
 def normalize_heading(heading):

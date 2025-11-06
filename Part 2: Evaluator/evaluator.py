@@ -5,6 +5,13 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sentence_transformers import SentenceTransformer, util
 from rouge_score import rouge_scorer
 
+# Interface: all good, include cumulative score at the top right 
+# prompt para que el llm te haga todo, con las metricas de completenes... y que de un score y un feedback
+# model = gpt-oss. https://ollama.com/search
+# user feedback dividir 
+# preguntarle del tfidf 
+
+
 _sbert = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")  # ~80MB, CPU OK
 _scorer = rouge_scorer.RougeScorer(["rougeL"], use_stemmer=True)
 
