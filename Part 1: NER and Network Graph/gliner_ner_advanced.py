@@ -196,4 +196,22 @@ print("Results saved to gliner_entities_results.json")
 
 
 
+# All headings and their frequencies:
+# --------------------------------------------------
+# ACADEMIC EXPERIENCE, Academic Experience, <strong>Academic Experience</strong>, Acamic Experience, <strong>Acamic Experience</strong>,   Academic Experience,  <strong>ACADEMIC EXPERIENCE</strong>, Academic experience, <strong>Academic Experience </strong>, Teaching and Research Experience, Acamic experience, COURSES. ACADEMIC EXPERIENCE<strong><br/></strong>, Executive Education, Subject, <strong>Academic Experienc</strong><strong>e</strong>, ACDEMIC EXPERIENCE, Academic and research experience, Visiting Scholar at the following universities, ASSISTANT PROFESSOR, ECONOMICS, TEACHING AND RESEARCH EXPERIENCE, ACADEMIC AND PROFESSIONAL EXPERIENCE, ASSISTANT PROFESSOR, OPERATIONS &amp; TECHNOLOGY, POSITION, <strong>ASSISTANT PROFESSOR, ECONOMÍA</strong>, Professional &amp; Teaching Experience, Academic and Professional Experience, EXPERIENCE, COURSE, Professional Examination
+
+# ACADEMIC BACKGROUND, Academic Background, <strong>Academic Background</strong>, Education, Acamic Background, <strong>Acamic Background</strong>, Academic background, Academic Background, EDUCATION, <strong>Academic Background </strong>, <strong>ACADEMIC BACKGROUND</strong>,   Academic Background, ACADEMIC BACKGROUND<strong><br/></strong>, ACADEMIC BACKGROUND<strong> </strong>,    1 | <strong>Academic Background:</strong>,  1 | Academic Background / Awards,  Research areas, Academic and Research Experience, AWARDS, AWARDS AND RECOGNITIONS, SELECTED PUBLICATIONS, HONORS &amp; AWARDS, <strong>Awards &amp; grants:</strong>, Achievements, Education &amp; Professional Qualifications, ACADEMIC BACKGOUND, LATEST PUBLICATIONS, PUBLICATIONS, MAIN PUBLICATIONS, Latest Publications, Formación Académica, Publications:, Academic background:, 
+
+# Corporate Experience, CORPORATE EXPERIENCE, <strong>Corporate Experience</strong>, Professional Experience, PROFESSIONAL EXPERIENCE, <strong>CORPORATE EXPERIENCE</strong>, Professional experience, Corporate experience, Corporative Experience, Professional Background, CORPORATE EXPERIENCE<strong><br/></strong>,  <strong>PROFESSIONAL EXPERIENCE</strong>, Corporate (and other professional) Experience, Main Projects, ACADEMIC AND PROFESSIONAL EXPERIENCE, <strong><strong>Corporate Experience</strong></strong>, Professional &amp; Teaching Experience, Academic and Professional Experience, EXPERIENCE, Industry Awards
+
+
+#    7 | Other information of interest
+#    4 | Specialties
+#    1 | ADDITIONAL INFORMATION
+#    1 | Expertise
+#    1 | 
+
+
+
+
 

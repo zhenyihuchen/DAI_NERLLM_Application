@@ -119,7 +119,7 @@ if st.session_state.show_feedback and st.session_state.last_result:
     st.markdown("##### 💬 Do you have any feedback about this question?")
     user_eval = st.text_input("How was this assessment? (optional)", key="user_eval")
     if user_eval:
-        sent = TextBlob(user_eval).sentiment.polarity
+        sent = TextBlob(user_eval).sentiment.polarity # REVIEW
         st.caption(f"Detected sentiment: {sent:+.2f}")
 
     # ---- Log / update current question entry ----
