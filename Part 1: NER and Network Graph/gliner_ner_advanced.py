@@ -4,11 +4,8 @@ from bs4 import BeautifulSoup
 from gliner import GLiNER
 import json
 
-
-# revisar mi primer approach con regex,
-#ver exactamente que entities
+#ajustar output gliner con entidades que ya tengo 
 # ponerlo para que lo haga desde un main
-# formateorlo bien gliner
 #implenetar resultados en langextract 
 # juntar con GLiNER (todos de todos)
 
@@ -67,7 +64,7 @@ def extract_section_content(html_text, section_headings):
     return ' '.join(content).strip()
 
 # Load dataset
-df = pd.read_csv('data/teachers_db_practice.csv')
+df = pd.read_csv('../data/teachers_db_practice.csv')
 
 # Create a copy with new columns
 df_processed = df.copy()
@@ -100,7 +97,7 @@ corporate_experience_headings = [
     "professionalteachingexperience", "experience", "industryawards"
 ]
 
-# Extract sections for each row
+# Extract sections for full dataset
 df_processed['academic_experience'] = df_processed['full_info'].apply(
     lambda x: extract_section_content(x, academic_experience_headings)
 )
@@ -113,13 +110,15 @@ df_processed['corporate_experience'] = df_processed['full_info'].apply(
     lambda x: extract_section_content(x, corporate_experience_headings)
 )
 
-# Save processed dataset
-df_processed.to_csv('data/teachers_db_processed.csv', index=False)
+# Save full processed dataset
+df_processed.to_csv('../data/teachers_db_processed.csv', index=False)
 
 print(f"Processed {len(df_processed)} rows")
 print(f"Academic Experience sections found: {(df_processed['academic_experience'] != '').sum()}")
 print(f"Academic Background sections found: {(df_processed['academic_background'] != '').sum()}")
 print(f"Corporate Experience sections found: {(df_processed['corporate_experience'] != '').sum()}")
+
+
 
 # # Show sample results
 # print("\nSample results:")
@@ -162,39 +161,63 @@ results = []
 
 for idx, row in df_processed.iterrows():
     row_result = {
-        "row_id": idx,
+        "id": idx,
         "alias": row.get('alias', ''),
-        "academic_experience": [],
-        "academic_background": [],
-        "corporate_experience": []
+        "academic_experience": {
+            "Course": [],
+            "Program": [],
+            "Organization": []
+        },
+        "academic_background": {
+            "Organization": [],
+            "Location": [],
+            "Education": [],
+            "Period": []
+        },
+        "corporate_experience": {
+            "Organization": [],
+            "Location": []
+        }
     }
     
     # Academic Experience NER
     if row['academic_experience'].strip():
         entities = model.predict_entities(row['academic_experience'], academic_experience_labels, threshold=0.4)
         for entity in entities:
-            row_result["academic_experience"].append({
-                "text": entity["text"],
-                "label": entity["label"]
-            })
+            if entity["label"] == "subject or course taught by professor":
+                row_result["academic_experience"]["Course"].append(entity["text"])
+            elif entity["label"] == "academic program or degree level taught":
+                row_result["academic_experience"]["Program"].append(entity["text"])
+            elif entity["label"] == "teaching institution or university where professor works":
+                row_result["academic_experience"]["Organization"].append(entity["text"])
     
     # Academic Background NER
     if row['academic_background'].strip():
         entities = model.predict_entities(row['academic_background'], academic_background_labels, threshold=0.4)
         for entity in entities:
-            row_result["academic_background"].append({
-                "text": entity["text"],
-                "label": entity["label"]
-            })
+            if entity["label"] == "educational institution where studied":
+                row_result["academic_background"]["Organization"].append(entity["text"])
+            elif entity["label"] == "location of educational institution":
+                row_result["academic_background"]["Location"].append(entity["text"])
+            elif entity["label"] == "academic degree or qualification earned":
+                row_result["academic_background"]["Education"].append(entity["text"])
+            elif entity["label"] == "years of study or graduation year":
+                row_result["academic_background"]["Period"].append(entity["text"])
     
     # Corporate Experience NER
     if row['corporate_experience'].strip():
         entities = model.predict_entities(row['corporate_experience'], corporate_experience_labels, threshold=0.4)
         for entity in entities:
-            row_result["corporate_experience"].append({
-                "text": entity["text"],
-                "label": entity["label"]
-            })
+            if entity["label"] == "employer company or organization":
+                row_result["corporate_experience"]["Organization"].append(entity["text"])
+            elif entity["label"] == "workplace location or company headquarters":
+                row_result["corporate_experience"]["Location"].append(entity["text"])
+    
+    # Remove duplicates from each list
+    for section in row_result.values():
+        if isinstance(section, dict):
+            for key, value_list in section.items():
+                section[key] = list(set(value_list))  # Remove duplicates
     
     results.append(row_result)
     
@@ -207,6 +230,14 @@ with open('gliner_entities_results.json', 'w') as f:
 
 print(f"\nCompleted NER extraction for {len(results)} rows")
 print("Results saved to gliner_entities_results.json")
+
+# Show sample results
+print("\nSample results:")
+for i in range(min(3, len(results))):
+    print(f"\nRow {i} - {results[i]['alias']}:")
+    print(f"Academic Experience: {results[i]['academic_experience']}")
+    print(f"Academic Background: {results[i]['academic_background']}")
+    print(f"Corporate Experience: {results[i]['corporate_experience']}")
 
 
 
