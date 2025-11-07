@@ -5,8 +5,11 @@ from gliner import GLiNER
 import json
 
 
-# revisar mi primer approach con regex, y hacer 
-# formateorlo bien
+# revisar mi primer approach con regex,
+#ver exactamente que entities
+# ponerlo para que lo haga desde un main
+# formateorlo bien gliner
+#implenetar resultados en langextract 
 # juntar con GLiNER (todos de todos)
 
 #filtrar los valores de cada categorias mas freecuentes para que el graph sea representativo. 
