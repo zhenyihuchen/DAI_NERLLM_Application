@@ -4,8 +4,7 @@ from bs4 import BeautifulSoup
 from gliner import GLiNER
 import json
 
-#ajustar output gliner con entidades que ya tengo 
-# ponerlo para que lo haga desde un main
+
 #implenetar resultados en langextract 
 # juntar con GLiNER (todos de todos)
 

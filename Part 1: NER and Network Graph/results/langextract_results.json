@@ -1,0 +1,614 @@
+[
+  {
+    "id": 0,
+    "alias": "Appius Aemilius Agricola",
+    "academic_experience": {
+      "Course": [],
+      "Program": [],
+      "Organization": []
+    },
+    "academic_background": {
+      "Organization": [
+        "Camberwell College of Arts UAL"
+      ],
+      "Location": [
+        "Spain",
+        "U.K.",
+        "Mexico City",
+        "Mexico",
+        "Hong Kong"
+      ],
+      "Education": [
+        "Bachelor in Graphic Design"
+      ],
+      "Period": [
+        "2013",
+        "2023 – Present",
+        "2017 – 2023",
+        "2014 – 2017",
+        "2013 – 2014"
+      ]
+    },
+    "corporate_experience": {
+      "Organization": [
+        "The Hub",
+        "A&M Studio",
+        "Vidivixi",
+        "Becquerel Capital"
+      ],
+      "Location": []
+    }
+  },
+  {
+    "id": 1,
+    "alias": "Appius Aemilius Cicero",
+    "academic_experience": {
+      "Course": [
+        "macroeconomics",
+        "economic environment & country economic analysis",
+        "microeconomics",
+        "Economics",
+        "economics"
+      ],
+      "Program": [],
+      "Organization": [
+        "IE Business School",
+        "Kent State University",
+        "IE"
+      ]
+    },
+    "academic_background": {
+      "Organization": [
+        "Cornell",
+        "Stanford",
+        "Brown University",
+        "Youngstown State University",
+        "IE Business School",
+        "Villanova",
+        "Kent State University"
+      ],
+      "Location": [
+        "US",
+        "USA",
+        "Spain"
+      ],
+      "Education": [
+        "Lean Six Sigma Master Black Belt Certificate",
+        "Executive Certificate in HR Leadership",
+        "undergraduate",
+        "Strategic Decision & Risk Management Certificate",
+        "M.A. Financial Economics",
+        "M.B.A.",
+        "E.M.B.A.",
+        "B.E. Electrical Engineering",
+        "masters’ level"
+      ],
+      "Period": [
+        "2013",
+        "2015-2018",
+        "2000",
+        "2010-2013",
+        "2018-Present",
+        "2018",
+        "2003-2005",
+        "2005-2010",
+        "2014",
+        "2004",
+        "2001",
+        "2013-2015",
+        "2011"
+      ]
+    },
+    "corporate_experience": {
+      "Organization": [
+        "MACtac ‘a Bemis Co’",
+        "Halliburton",
+        "Permasteelisa",
+        "GE",
+        "Cameron ‘a Schlumberger Co’",
+        "Millwood Inc."
+      ],
+      "Location": []
+    }
+  },
+  {
+    "id": 2,
+    "alias": "Appius Aemilius Crassus",
+    "academic_experience": {
+      "Course": [
+        "Course on accounting in antidumpling proceedings",
+        "Industrial / Intellectual Property Law",
+        "Antitrust Law",
+        "Industrial and Intellectual Property Law",
+        "EU Regulation of Telecommunications and Energy",
+        "EU Regulation of Strategic Economic Sectors",
+        "Course on EU Competition Law",
+        "Air and Space Law",
+        "Competition Law",
+        "Business Law"
+      ],
+      "Program": [],
+      "Organization": [
+        "University San Pablo CEU",
+        "San Pablo CEU University",
+        "IE University",
+        "Comillas University"
+      ]
+    },
+    "academic_background": {
+      "Organization": [
+        "Université Libre de Bruxelles",
+        "Department of State – US Government",
+        "European Commission",
+        "University of Valladolid",
+        "College of Europe",
+        "IESE"
+      ],
+      "Location": [
+        "Spain",
+        "London",
+        "US",
+        "Madrid",
+        "Belgium",
+        "Bruges",
+        "Brussels"
+      ],
+      "Education": [
+        "Master’s degree in EU Law",
+        "Master’s Degree in EU Law",
+        "International Leadership Programme",
+        "S. Degree in Law",
+        "Bachelor in Law with a specialization in EU and International Law",
+        "Diploma on accounting and finance for senior management",
+        "BS Degree in Law"
+      ],
+      "Period": [
+        "2020-2021",
+        "2011 - 2013",
+        "2008",
+        "1989",
+        "2013 - Present",
+        "2000",
+        "2019 - Present",
+        "2018-2019",
+        "2007",
+        "1992",
+        "2017",
+        "1993 - 1997",
+        "2001 - 2008",
+        "1994",
+        "2017 - Present",
+        "1997 - 2001",
+        "2021-2022",
+        "2008 - 2011",
+        "2013 - 2019"
+      ]
+    },
+    "corporate_experience": {
+      "Organization": [
+        "EU Institutions",
+        "Spanish Telecoms Regulator",
+        "European Union",
+        "Telecommunications Regulatory Authority (currently part of CNMC)",
+        "European Commission",
+        "Creddia Advisors – Regulatory Issues & EU Affairs",
+        "Bird & Bird Law Firm",
+        "Bird & Bird",
+        "Representation of the Galician Government"
+      ],
+      "Location": []
+    }
+  },
+  {
+    "id": 3,
+    "alias": "Flavia Prisca",
+    "academic_experience": {
+      "Course": [
+        "Digital and AI Economics",
+        "Economics",
+        "Humanities",
+        "Auditing",
+        "Business Administration",
+        "digital ecosystems",
+        "artificial intelligence economics"
+      ],
+      "Program": [],
+      "Organization": [
+        "Harvard University",
+        "University of the Andes",
+        "IE University"
+      ]
+    },
+    "academic_background": {
+      "Organization": [
+        "Penn",
+        "Harvard",
+        "Stanford",
+        "MIT",
+        "ICADE (Comillas Pontifical University)",
+        "University of the Andes",
+        "Stanford University"
+      ],
+      "Location": [
+        "Colombia",
+        "Spain",
+        "Europe"
+      ],
+      "Education": [
+        "executive education programs",
+        "MA in Buddhist Studies",
+        "Master’s degree in Auditing",
+        "postgraduate studies in Humanities",
+        "Bachelor in Economics and Business Administration",
+        "Master in Auditing",
+        "Bachelor of Science in Business Administration and Economics"
+      ],
+      "Period": [
+        "1996",
+        "1999",
+        "2006"
+      ]
+    },
+    "corporate_experience": {
+      "Organization": [
+        "SACYR",
+        "Independent Consulting",
+        "Women’s World Banking Co.",
+        "ANAR Foundation",
+        "Embassy of Colombia in Spain",
+        "Harvard Strategy Consulting",
+        "Women’s World Bank Co",
+        "SciTheWorld",
+        "Citibank",
+        "Plan Colombia Europe",
+        "Government of Colombia"
+      ],
+      "Location": []
+    }
+  },
+  {
+    "id": 4,
+    "alias": "Appius Aemilius Scipio",
+    "academic_experience": {
+      "Course": [
+        "Machine Learning",
+        "AI-driven automation",
+        "Computer Vision",
+        "computer vision",
+        "data science",
+        "Robotics and Automation"
+      ],
+      "Program": [],
+      "Organization": [
+        "IE University"
+      ]
+    },
+    "academic_background": {
+      "Organization": [
+        "Universidad Politécnica de Madrid",
+        "Autonomous System Technologies Research & Integration Laboratory",
+        "Massachusetts Institute of Technology",
+        "Centro de Automática y Robótica (UPM-CSIC)",
+        "Universidad de Oviedo",
+        "Arizona State University"
+      ],
+      "Location": [
+        "USA",
+        "Spain"
+      ],
+      "Education": [
+        "D. in Automation and Robotics",
+        "Ph.D.",
+        "Industrial Engineer",
+        "Industrial Engineering degree"
+      ],
+      "Period": [
+        "2015 – 2021",
+        "2022 – Present",
+        "2013 – 2020",
+        "2020",
+        "2017 – 2018",
+        "2015",
+        "2012",
+        "2021 – 2024",
+        "2020 – 2021",
+        "2012 – 2013",
+        "2020 – Present"
+      ]
+    },
+    "corporate_experience": {
+      "Organization": [
+        "Accurate Quant",
+        "Dronomy",
+        "ThermoHuman",
+        "Shapelets"
+      ],
+      "Location": []
+    }
+  },
+  {
+    "id": 5,
+    "alias": "Appius Aemilius Severus",
+    "academic_experience": {
+      "Course": [
+        "Digital Transformation",
+        "Technology and Innovation Management",
+        "Technology & Innovation Management"
+      ],
+      "Program": [],
+      "Organization": [
+        "IE Business School",
+        "IE"
+      ]
+    },
+    "academic_background": {
+      "Organization": [
+        "Universidad Politécnica de Madrid",
+        "IE Business School"
+      ],
+      "Location": [
+        "Middle East",
+        "Spain",
+        "UAE",
+        "CEMA region"
+      ],
+      "Education": [
+        "Master's Degree in Industrial Engineering - Automation and Robotics",
+        "International Executive MBA on Advanced Global Management"
+      ],
+      "Period": [
+        "2000-2007",
+        "2019-",
+        "1999",
+        "2013-2019",
+        "2007-2010",
+        "2015",
+        "2010-2013",
+        "Dec 2010"
+      ]
+    },
+    "corporate_experience": {
+      "Organization": [
+        "Accenture",
+        "Neoris",
+        "Etisalat",
+        "Boston Consulting Group",
+        "Havas Digital"
+      ],
+      "Location": []
+    }
+  },
+  {
+    "id": 6,
+    "alias": "Appius Antonius Lepidus",
+    "academic_experience": {
+      "Course": [
+        "Negotiation and Public Advocacy",
+        "negotiation"
+      ],
+      "Program": [],
+      "Organization": [
+        "Diplomatic School of Spain",
+        "IE University"
+      ]
+    },
+    "academic_background": {
+      "Organization": [
+        "Georgetown University",
+        "Harvard University",
+        "ICADE (Universidad Pontificia de Comillas)",
+        "Pompeu Fabra University",
+        "Elcano Royal Institute",
+        "Columbia University"
+      ],
+      "Location": [
+        "USA",
+        "Spain",
+        "Madrid"
+      ],
+      "Education": [
+        "MSc) in Negotiation and Conflict Resolution",
+        "Graduated in Economics",
+        "Georgetown Leadership Seminar (GLS)",
+        "Master in Highly Regulated Industries",
+        "Program on Negotiation (PON)",
+        "Master of Science"
+      ],
+      "Period": [
+        "2019",
+        "2015 – 2018",
+        "2022",
+        "2019 – 2021",
+        "2018",
+        "2015",
+        "2018 – 2019",
+        "2019 – Present",
+        "2017",
+        "2020 – Present"
+      ]
+    },
+    "corporate_experience": {
+      "Organization": [
+        "United Nations",
+        "Management Solutions",
+        "beBartlet",
+        "Elcano Royal Institute",
+        "beBartlet – a public advocacy firm",
+        "PIMEC Jóvenes Madrid"
+      ],
+      "Location": []
+    }
+  },
+  {
+    "id": 7,
+    "alias": "Appius Antonius Naso",
+    "academic_experience": {
+      "Course": [
+        "mathematical logic",
+        "Mathematics for life sciences",
+        "model theory",
+        "mathematics applications to healthcare",
+        "economics"
+      ],
+      "Program": [],
+      "Organization": [
+        "University of Wrocław"
+      ]
+    },
+    "academic_background": {
+      "Organization": [
+        "Universidad Autónoma de Madrid",
+        "university of Wroclaw",
+        "University of Wrocław"
+      ],
+      "Location": [
+        "Poland"
+      ],
+      "Education": [
+        "Master in Pure and Applied Mathematics",
+        "Bachelor's degree in Mathematics",
+        "Ph.D candidate",
+        "Master’s degree in pure and applied mathematics",
+        "Ph.D. candidate in Mathematics",
+        "Bachelor in Mathematics"
+      ],
+      "Period": [
+        "2023 – 2024",
+        "2019",
+        "2020",
+        "2022 – 2023",
+        "2020 – Present"
+      ]
+    },
+    "corporate_experience": {
+      "Organization": [],
+      "Location": []
+    }
+  },
+  {
+    "id": 8,
+    "alias": "Appius Calpurnius Paullus",
+    "academic_experience": {
+      "Course": [
+        "Public Law",
+        "public and administrative law",
+        "Law",
+        "Comparative Law"
+      ],
+      "Program": [],
+      "Organization": [
+        "Universitat Oberta de Catalunya",
+        "Université Libre de Bruxelles",
+        "IE University",
+        "Framingham State University",
+        "American universities",
+        "Alma Mater Studiorum – Università di Bologna",
+        "Universidad de las Hespérides",
+        "Boston College",
+        "Università degli Studi di Siena",
+        "European universities",
+        "Katholische Universität Eichstätt-Ingolstadt"
+      ]
+    },
+    "academic_background": {
+      "Organization": [
+        "Universitat Oberta de Catalunya",
+        "Universidad Católica de Ávila",
+        "European University Institute",
+        "Boston College",
+        "Universidad Pontificia de Salamanca",
+        "College of Europe"
+      ],
+      "Location": [
+        "European",
+        "Spain",
+        "United States",
+        "Germany",
+        "USA",
+        "Italy",
+        "American",
+        "Belgium"
+      ],
+      "Education": [
+        "Graduado en Filosofía (B.A.)",
+        "Ph.D.",
+        "D. in Laws",
+        "M.A. in European Political and European Studies",
+        "Ph.",
+        "LL.M. in Comparative, European and International Laws",
+        "Graduado en Derecho (J.D. equivalent)",
+        "Máster Universitario de Abogacía (LL.M.)",
+        "M.A. in Philosophy"
+      ],
+      "Period": [
+        "2015 - 2016",
+        "2019",
+        "2021 - 2022",
+        "2020",
+        "2023 - Present",
+        "2018",
+        "2021 - Present",
+        "2014",
+        "2022 - Present",
+        "2015",
+        "2017 - 2019",
+        "ongoing",
+        "2022"
+      ]
+    },
+    "corporate_experience": {
+      "Organization": [
+        "CaixaBank",
+        "EU Focus Group",
+        "European Parliament"
+      ],
+      "Location": []
+    }
+  },
+  {
+    "id": 9,
+    "alias": "Appius Calpurnius Severus",
+    "academic_experience": {
+      "Course": [
+        "Advanced Analytics"
+      ],
+      "Program": [],
+      "Organization": [
+        "IE University"
+      ]
+    },
+    "academic_background": {
+      "Organization": [
+        "Technical University of Cartagena",
+        "University Carlos III of Madrid"
+      ],
+      "Location": [
+        "Spain"
+      ],
+      "Education": [
+        "PhD in Artificial Intelligence",
+        "Ph.D. in Artificial Intelligence",
+        "Advanced Telecommunications Engineering (Bachelor & MsC)",
+        "BSc in Telecommunication Engineering"
+      ],
+      "Period": [
+        "2022 – Present",
+        "2015 – 2020",
+        "2021 – Present",
+        "2019 – 2021",
+        "2017 – 2019",
+        "2015 – 2017",
+        "2009 – 2014"
+      ]
+    },
+    "corporate_experience": {
+      "Organization": [
+        "Minsait by Indra",
+        "Capgemini",
+        "Boeing Europe",
+        "PC Componentes"
+      ],
+      "Location": []
+    }
+  }
+]
