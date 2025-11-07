@@ -1,8 +1,17 @@
 import os, json, re
 from groq import Groq
+from dotenv import load_dotenv  
+
+
+load_dotenv()
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 MODEL = os.getenv("GROQ_MODEL", "llama-3.1-8b-instant")  
+if not GROQ_API_KEY:
+    raise ValueError(
+        "❌ Missing GROQ_API_KEY. Please create a .env file with your key, e.g.:\n"
+        "GROQ_API_KEY=sk_your_key_here"
+    )
 
 _JSON_EXTRACT_RE = re.compile(r"\{.*\}", re.DOTALL)
 
