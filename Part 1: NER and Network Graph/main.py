@@ -1,65 +1,65 @@
 import json
-# from data_preprocessor import preprocess_dataset
-# from gliner_extractor import extract_entities_gliner
-# from langextract_extractor import process_full_dataset_in_batches
-# from bert_extractor import HybridNERProcessor
+from data_preprocessor import preprocess_dataset
+from gliner_extractor import extract_entities_gliner
+from langextract_extractor import process_full_dataset_in_batches
+from bert_regex_ner_organized import HybridNERProcessor
 from entity_merger import load_results_from_files, merge_entity_results, save_merged_results
 
 def main():
     """Main function to orchestrate the NER pipeline"""
     
     # ========================================================================
-    # SECTION 1: DATA PREPROCESSING (COMMENTED OUT)
+    # SECTION 1: DATA PREPROCESSING
     # ========================================================================
     # Step 1: Load preprocessed dataset
-    # print("Step 1: Loading preprocessed dataset...")
-    # csv_path = 'data/teachers_db_practice_processed.csv'
-    # import pandas as pd
-    # df_processed = pd.read_csv(csv_path)
+    print("Step 1: Loading preprocessed dataset...")
+    csv_path = 'data/teachers_db_practice_processed.csv'
+    import pandas as pd
+    df_processed = pd.read_csv(csv_path)
     
     # ========================================================================
-    # SECTION 2: GLINER EXTRACTION (COMMENTED OUT)
+    # SECTION 2: GLINER EXTRACTION
     # ========================================================================
     # Step 2: Extract entities using GLiNER
-    # print("\nStep 2: Extracting entities with GLiNER...")
-    # gliner_results = extract_entities_gliner(df_processed)
-    # 
-    # # Save GLiNER results
-    # gliner_output_path = 'results/gliner_entities_results.json'
-    # with open(gliner_output_path, 'w') as f:
-    #     json.dump(gliner_results, f, indent=2)
-    # print(f"GLiNER results saved to {gliner_output_path}")
+    print("\nStep 2: Extracting entities with GLiNER...")
+    gliner_results = extract_entities_gliner(df_processed)
+    
+    # Save GLiNER results
+    gliner_output_path = 'results/gliner_entities_results.json'
+    with open(gliner_output_path, 'w') as f:
+        json.dump(gliner_results, f, indent=2)
+    print(f"GLiNER results saved to {gliner_output_path}")
     
     # ========================================================================
-    # SECTION 3: BERT+REGEX EXTRACTION (COMMENTED OUT)
+    # SECTION 3: BERT+REGEX EXTRACTION
     # ========================================================================
-    # Step 2: Extract entities using BERT + Regex approach
-    # print("\nStep 2: Extracting entities with BERT + Regex...")
-    # processor = HybridNERProcessor()
-    # bert_regex_results = []
-    # 
-    # for idx, row in df_processed.iterrows():
-    #     print(f"Processing Professor {idx+1}: {row.get('alias', 'Unknown')}")
-    #     
-    #     html_content = row.get('full_info', '')
-    #     prof_id = idx  # Use dataset index starting from 0
-    #     alias = row.get('alias', f'Professor_{idx}')
-    #     
-    #     if html_content:
-    #         result = processor.process_professor(html_content, prof_id, alias)
-    #         bert_regex_results.append(result)
-    # 
-    # # Save BERT+Regex results
-    # bert_regex_output_path = 'results/bert_regex_entities_results.json'
-    # with open(bert_regex_output_path, 'w') as f:
-    #     json.dump(bert_regex_results, f, indent=2)
-    # print(f"BERT+Regex results saved to {bert_regex_output_path}")
-    # print(f"Completed NER extraction for {len(bert_regex_results)} rows")
+    # Step 3: Extract entities using BERT + Regex approach
+    print("\nStep 3: Extracting entities with BERT + Regex...")
+    processor = HybridNERProcessor()
+    bert_regex_results = []
+    
+    for idx, row in df_processed.iterrows():
+        print(f"Processing Professor {idx+1}: {row.get('alias', 'Unknown')}")
+        
+        html_content = row.get('full_info', '')
+        prof_id = idx  # Use dataset index starting from 0
+        alias = row.get('alias', f'Professor_{idx}')
+        
+        if html_content:
+            result = processor.process_professor(html_content, prof_id, alias)
+            bert_regex_results.append(result)
+    
+    # Save BERT+Regex results
+    bert_regex_output_path = 'results/bert_regex_entities_results.json'
+    with open(bert_regex_output_path, 'w') as f:
+        json.dump(bert_regex_results, f, indent=2)
+    print(f"BERT+Regex results saved to {bert_regex_output_path}")
+    print(f"Completed NER extraction for {len(bert_regex_results)} rows")
     
     # ========================================================================
     # SECTION 4: ENTITY MERGING (ACTIVE)
     # ========================================================================
-    print("Step 4: Merging GLiNER and BERT+Regex results...")
+    print("\nStep 4: Merging GLiNER and BERT+Regex results...")
     
     # File paths
     gliner_file = 'results/gliner_entities_results.json'
@@ -104,6 +104,14 @@ def main():
     except Exception as e:
         print(f"Error during merging: {str(e)}")
         raise
+    
+    # ========================================================================
+    # SECTION 5: NETWORK GRAPH ANALYSIS
+    # ========================================================================
+    # Step 5: Generate social network graph from extracted entities
+    print("\nStep 5: Generating network graph...")
+    # TODO: Implement network graph generation
+
 
 if __name__ == "__main__":
     main()
