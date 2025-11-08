@@ -385,11 +385,13 @@ def extract_entities_langextract(df_processed, start_idx=0, batch_size=50):
     end_idx = min(start_idx + batch_size, len(df_processed))
     df_batch = df_processed.iloc[start_idx:end_idx]
     print(f"Processing batch: rows {start_idx}-{end_idx-1} ({len(df_batch)} rows)")
-    print("Note: Processing with 7-second delays between requests to respect API limits")
+    print("Note: Processing with 5-second delays between requests to respect API limits")
     
     results = []
     
     for batch_idx, (idx, row) in enumerate(df_batch.iterrows()):
+        print(f"Processing row {idx} (batch row {batch_idx + 1}/{len(df_batch)})")
+        
         # Initialize result structure
         row_result = {
             "id": idx,
@@ -419,12 +421,13 @@ def extract_entities_langextract(df_processed, start_idx=0, batch_size=50):
                     prompt_description=prompt,
                     examples=examples,
                     api_key=api_key,
+                    model_id="gemini-2.5-flash",  # 15 requests/minute
                     extraction_passes=1,
                     max_workers=1
                 )
                 
-                # Rate limiting: wait 7 seconds between requests (10 requests/minute = 6s + buffer)
-                time.sleep(7)
+                # Rate limiting: wait 5 seconds between requests (15 requests/minute = 4s + buffer)
+                time.sleep(5)
                 
                 structured_entities = convert_to_structured_format(result)
                 row_result.update(structured_entities)
@@ -432,8 +435,8 @@ def extract_entities_langextract(df_processed, start_idx=0, batch_size=50):
             except Exception as e:
                 print(f"Error processing row {idx}: {e}")
                 if "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e):
-                    print("Rate limit hit, waiting 60 seconds...")
-                    time.sleep(60)
+                    print("Rate limit hit, waiting 10 seconds...")
+                    time.sleep(10)
                     # Retry once
                     try:
                         result = lx.extract(
@@ -441,12 +444,13 @@ def extract_entities_langextract(df_processed, start_idx=0, batch_size=50):
                             prompt_description=prompt,
                             examples=examples,
                             api_key=api_key,
+                            model_id="gemini-2.5-flash",
                             extraction_passes=1,
                             max_workers=1
                         )
                         structured_entities = convert_to_structured_format(result)
                         row_result.update(structured_entities)
-                        time.sleep(7)
+                        time.sleep(5)
                     except Exception as retry_e:
                         print(f"Retry failed for row {idx}: {retry_e}")
         

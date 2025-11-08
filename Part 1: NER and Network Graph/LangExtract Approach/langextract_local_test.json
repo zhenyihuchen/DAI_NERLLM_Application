@@ -1,0 +1,251 @@
+[
+  {
+    "id": 0,
+    "alias": "Appius Aemilius Agricola",
+    "academic_experience": {
+      "Course": [
+        "graphics"
+      ],
+      "Program": [],
+      "Organization": [
+        "Camberwell College of Arts UAL"
+      ]
+    },
+    "academic_background": {
+      "Organization": [
+        "UAL"
+      ],
+      "Location": [
+        "U.K."
+      ],
+      "Education": [],
+      "Period": []
+    },
+    "corporate_experience": {
+      "Organization": [
+        "Becquerel Capital",
+        "The Hub",
+        "A&amp;M Studio",
+        "Vidivixi"
+      ],
+      "Location": []
+    }
+  },
+  {
+    "id": 1,
+    "alias": "Appius Aemilius Cicero",
+    "academic_experience": {
+      "Course": [
+        "macroeconomics",
+        "Economics",
+        "economics",
+        "microeconomics",
+        "None"
+      ],
+      "Program": [
+        "M.B.A.",
+        "Adjunct Professor of Economics",
+        "Executive Certificate in HR Leadership",
+        "Adjunct Level II Professor of Economics"
+      ],
+      "Organization": [
+        "IE",
+        "Kent State University"
+      ]
+    },
+    "academic_background": {
+      "Organization": [],
+      "Location": [
+        "USA",
+        "None"
+      ],
+      "Education": [
+        "E.M.B.A."
+      ],
+      "Period": [
+        "None"
+      ]
+    },
+    "corporate_experience": {
+      "Organization": [
+        "Millwood Inc.",
+        "Stanford",
+        "null",
+        "MACtac",
+        "Cameron",
+        "IE Business School",
+        "Permasteelisa",
+        "Kent State University",
+        "Villanova",
+        "Halliburton",
+        "GE",
+        "G"
+      ],
+      "Location": []
+    }
+  },
+  {
+    "id": 2,
+    "alias": "Appius Aemilius Crassus",
+    "academic_experience": {
+      "Course": [
+        "EU Regulation of Strategic Economic Sectors",
+        "EU Competition Law",
+        "International Leadership Programme",
+        "Business Law",
+        "Course on EU Competition Law",
+        "Competition Law"
+      ],
+      "Program": [],
+      "Organization": [
+        "University San Pablo CEU (Madrid)",
+        "IE University",
+        "Comillas University"
+      ]
+    },
+    "academic_background": {
+      "Organization": [
+        "Université Libre de Bruxelles",
+        "University of Valladolid",
+        "College of Europe",
+        "CNMC"
+      ],
+      "Location": [
+        "Spain",
+        "Belgium",
+        "US"
+      ],
+      "Education": [
+        "Master’s degree in EU Law",
+        "S. Degree in Law",
+        "Master’s Degree in EU Law",
+        "BS Degree in Law",
+        "Diploma on accounting and finance for senior management",
+        "Course on accounting in antidumpling proceedings",
+        "Telecommunications Regulatory Authority (currently part of CNMC)"
+      ],
+      "Period": [
+        "1997 - 2001",
+        "2007",
+        "2000",
+        "1994",
+        "2017",
+        "2008 - 2011",
+        "2008"
+      ]
+    },
+    "corporate_experience": {
+      "Organization": [
+        "Spanish Telecoms Regulator",
+        "Department of State – US Government",
+        "San Pablo CEU University",
+        "Creddia Advisors",
+        "IESE",
+        "Bird &amp; Bird",
+        "European Commission",
+        "Comillas University",
+        "Bird &amp; Bird Law Firm",
+        "Telecommunications Regulatory Authority (currently part of CNMC)",
+        "Galician Government",
+        "CNMC"
+      ],
+      "Location": []
+    }
+  },
+  {
+    "id": 3,
+    "alias": "Flavia Prisca",
+    "academic_experience": {
+      "Course": [
+        "Digital and AI Economics",
+        "None",
+        "digital ecosystems"
+      ],
+      "Program": [],
+      "Organization": [
+        "Stanford",
+        "Harvard",
+        "IE University",
+        "MIT",
+        "Penn"
+      ]
+    },
+    "academic_background": {
+      "Organization": [
+        "ICADE (Comillas Pontifical University)",
+        "Stanford University"
+      ],
+      "Location": [
+        "Spain",
+        "USA",
+        "Colombia"
+      ],
+      "Education": [
+        "postgraduate studies in Humanities",
+        "Bachelor of Science in Business Administration and Economics",
+        "digital ecosystems",
+        "Bachelor in Economics and Business Administration",
+        "MA in Buddhist Studies",
+        "Master’s degree in Auditing",
+        "Master in Auditing"
+      ],
+      "Period": []
+    },
+    "corporate_experience": {
+      "Organization": [
+        "Women’s World Banking Co.",
+        "Plan Colombia for Europe",
+        "Government of Colombia",
+        "Citibank",
+        "Embassy of Colombia in Spain",
+        "Independent Consulting",
+        "Plan Colombia Europe",
+        "Harvard Strategy Consulting",
+        "University of the Andes"
+      ],
+      "Location": []
+    }
+  },
+  {
+    "id": 4,
+    "alias": "Appius Aemilius Scipio",
+    "academic_experience": {
+      "Course": [
+        "Computer Vision"
+      ],
+      "Program": [],
+      "Organization": [
+        "IE University"
+      ]
+    },
+    "academic_background": {
+      "Organization": [
+        "MIT",
+        "Universidad Politécnica de Madrid",
+        "Universidad de Oviedo"
+      ],
+      "Location": [
+        "Spain",
+        "USA"
+      ],
+      "Education": [
+        "Industrial Engineer",
+        "Ph.D. in Automation and Robotics",
+        "Ph.D."
+      ],
+      "Period": [
+        "2012",
+        "2020"
+      ]
+    },
+    "corporate_experience": {
+      "Organization": [
+        "Accurate Quant",
+        "Dronomy",
+        "ThermoHuman",
+        "Shapelets"
+      ],
+      "Location": []
+    }
+  }
+]

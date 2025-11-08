@@ -1,6 +1,17 @@
+"""
+DATA PREPROCESSOR FOR ACADEMIC BIOGRAPHIES
+==========================================
+Extracts and preprocesses HTML sections from professor biographies.
+Normalizes headings and extracts content by section type.
+"""
+
 import pandas as pd
 import re
 from bs4 import BeautifulSoup
+
+# ============================================================================
+# SECTION 1: TEXT NORMALIZATION UTILITIES
+# ============================================================================
 
 def normalize_heading(heading):
     """Normalize heading by removing spaces, tags, punctuation and making lowercase"""
@@ -10,6 +21,10 @@ def normalize_heading(heading):
     heading = re.sub(r'[^\w]', '', heading)
     # Make lowercase
     return heading.lower()
+
+# ============================================================================
+# SECTION 2: HTML CONTENT EXTRACTION
+# ============================================================================
 
 def extract_section_content(html_text, section_headings):
     """Extract content following specific section headings"""
@@ -47,6 +62,10 @@ def extract_section_content(html_text, section_headings):
     
     return ' '.join(content).strip()
 
+# ============================================================================
+# SECTION 3: SECTION HEADING DEFINITIONS
+# ============================================================================
+
 def preprocess_dataset(csv_path):
     """Preprocess the dataset by extracting sections from HTML content"""
     
@@ -77,6 +96,10 @@ def preprocess_dataset(csv_path):
         "mainprojects", "academicandprofessionalexperience", 
         "professionalteachingexperience", "experience", "industryawards"
     ]
+
+# ============================================================================
+# SECTION 4: MAIN PREPROCESSING PIPELINE
+# ============================================================================
     
     # Load and process dataset
     df = pd.read_csv(csv_path)
@@ -94,6 +117,10 @@ def preprocess_dataset(csv_path):
     df_processed['corporate_experience'] = df_processed['full_info'].apply(
         lambda x: extract_section_content(x, corporate_experience_headings)
     )
+
+# ============================================================================
+# SECTION 5: OUTPUT AND STATISTICS
+# ============================================================================
     
     # Save processed dataset
     import os

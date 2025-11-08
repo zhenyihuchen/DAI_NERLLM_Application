@@ -1,4 +1,15 @@
+"""
+GLINER ENTITY EXTRACTOR FOR ACADEMIC BIOGRAPHIES
+===============================================
+Uses GLiNER model for zero-shot named entity recognition.
+Extracts structured entities from preprocessed biography sections.
+"""
+
 from gliner import GLiNER
+
+# ============================================================================
+# SECTION 1: MODEL INITIALIZATION
+# ============================================================================
 
 def extract_entities_gliner(df_processed):
     """
@@ -15,6 +26,10 @@ def extract_entities_gliner(df_processed):
     model = GLiNER.from_pretrained("urchade/gliner_mediumv2.1")
     model.eval()
     print("GLiNER model loaded!")
+
+# ============================================================================
+# SECTION 2: ENTITY LABEL DEFINITIONS
+# ============================================================================
 
     # Define labels for each column
     academic_experience_labels = [
@@ -34,6 +49,10 @@ def extract_entities_gliner(df_processed):
         "employer company or organization", 
         "workplace location or company headquarters"
     ]
+
+# ============================================================================
+# SECTION 3: MAIN PROCESSING PIPELINE
+# ============================================================================
 
     # Process each row and extract entities
     results = []
@@ -58,6 +77,10 @@ def extract_entities_gliner(df_processed):
                 "Location": []
             }
         }
+
+# ============================================================================
+# SECTION 4: ENTITY EXTRACTION BY SECTION
+# ============================================================================
         
         # Academic Experience NER
         if row['academic_experience'].strip():
@@ -91,6 +114,10 @@ def extract_entities_gliner(df_processed):
                     row_result["corporate_experience"]["Organization"].append(entity["text"])
                 elif entity["label"] == "workplace location or company headquarters":
                     row_result["corporate_experience"]["Location"].append(entity["text"])
+
+# ============================================================================
+# SECTION 5: POST-PROCESSING AND OUTPUT
+# ============================================================================
         
         # Remove duplicates from each list
         for section in row_result.values():
