@@ -1,3 +1,4 @@
+# utils.py
 import json, random
 
 
@@ -9,9 +10,9 @@ def load_qa(path="Q&A_db_practice.json"):
 
 
 def question_variants(concept: str) -> list[str]:
-    concept = concept.strip()
-    #base = concept.split("(")[0].strip()  # drop "(AUC)" part if present
-    base = concept
+    # concept = concept.strip()
+    # #base = concept.split("(")[0].strip()  # drop "(AUC)" part if present
+    base = concept.strip()
 
     variants = [
         f"Define {base}.",

@@ -1,3 +1,4 @@
+# app.py
 import os
 import random
 from datetime import datetime
@@ -6,7 +7,6 @@ import pandas as pd
 import streamlit as st
 from textblob import TextBlob
 
-#from evaluator import score_answer
 from evaluator_llm import score_answer
 from utils import load_qa, make_question, pick_index
 
@@ -52,7 +52,22 @@ if "seen_count" not in st.session_state:
     st.session_state.seen_count = 1       # number of questions seen so far for stats at the top
 if "mastered" not in st.session_state:
     st.session_state.mastered = set()     # indices of concepts scored >= 80 to avoid asking them again
+if "rate_clarity" not in st.session_state:
+    st.session_state.rate_clarity = None
+if "rate_relevance" not in st.session_state:
+    st.session_state.rate_relevance = None
+if "rate_credibility" not in st.session_state:
+    st.session_state.rate_credibility = None
+if "rate_overall" not in st.session_state:
+    st.session_state.rate_overall = None
 
+
+COLUMNS = [
+    "ts", "question", "student_answer", "reference_answer",
+    "score", "feedback",
+    "user_comment", "user_sentiment",
+    "rate_clarity", "rate_relevance", "rate_credibility", "rate_overall",
+]
 
 
 # -- Helper functions --
@@ -73,7 +88,25 @@ def next_question_cb():
     st.session_state.last_result = None
     st.session_state.show_feedback = False
     st.session_state.seen_count += 1
+    for k in ["rate_clarity", "rate_relevance", "rate_credibility", "rate_overall"]:
+        st.session_state.pop(k, None)
 
+def do_evaluate(student_text, reference, question, top_buttons_placeholder=None):
+    if not student_text.strip():
+        st.warning("Please write an answer first.")
+        return
+    result = score_answer(student_text, reference, question=question)
+    st.session_state.last_result = result
+    st.session_state.show_feedback = True
+    if top_buttons_placeholder is not None:
+        top_buttons_placeholder.empty()  # hide top buttons immediately
+    # mark mastered if high enough
+    try:
+        if result.get("score", 0) >= 75:
+            st.session_state.mastered.add(st.session_state.idx)
+            st.caption("✅ Concept marked as mastered (won’t be asked again this session).")
+    except Exception:
+        pass
 
 # -- Display metrics at the top --
 answered = len(st.session_state.log)
@@ -94,7 +127,7 @@ else:
     color = "#888888"
 
 
-left, right = st.columns([1, 4])  # adjust ratio if needed
+left, right = st.columns([1, 4])  
 with left:
     st.markdown(
         f"<div style='font-size:0.9rem;color:#666;'>Average score</div>"
@@ -114,8 +147,8 @@ st.divider()
 # -- End session screen --
 if st.session_state.session_ended:
     # Build a DataFrame from the log 
-    cols = ["ts","question","student_answer","reference_answer","score","feedback","user_comment","user_sentiment"]
-    df = pd.DataFrame(st.session_state.log, columns=cols)
+    df = pd.DataFrame(st.session_state.log, columns=COLUMNS)
+
 
     # CSV bytes
     csv_bytes = df.to_csv(index=False).encode("utf-8")
@@ -140,6 +173,7 @@ if st.session_state.session_ended:
         st.session_state.show_feedback = False
         st.session_state.idx = pick_new_idx()
         st.session_state.seen_count = 1
+        st.session_state.mastered = set()
         st.rerun()
 
     st.stop()  # prevent rest of app from rendering
@@ -163,47 +197,60 @@ student = st.text_area(
     key="student_text",
 )
 
-col1, col2 = st.columns(2)
-with col1:
-    evaluate = st.button("Evaluate")
-with col2:
-    st.button("Next question", on_click=next_question_cb)
+# --- Top buttons in a placeholder so we can remove them and move to bottom when feedback is shown ---
+top_buttons = st.empty()
+
+if not st.session_state.show_feedback:
+    with top_buttons.container():
+        col1, col2 = st.columns(2)
+        with col1:
+            evaluate = st.button("Evaluate")
+        with col2:
+            nextq = st.button("Next question", on_click=next_question_cb)
+else:
+    evaluate = nextq = None 
 
 
 # -- Evaluate --
 if evaluate:
-    if not student.strip():
-        st.warning("Please write an answer first.")
-    else:
-        result = score_answer(student, ref, question=q)
-        st.session_state.last_result = result      # persist across reruns
-        st.session_state.show_feedback = True      # now show feedback/comment box
-    
-    # Mark mastered if high enough
-    try:
-        if result.get("score", 0) >= 80:
-            st.session_state.mastered.add(st.session_state.idx)
-            st.caption("✅ Concept marked as mastered (won’t be asked again this session).")
-    except Exception:
-        pass
+    do_evaluate(st.session_state.student_text, ref, q, top_buttons_placeholder=top_buttons)
 
 # If we have a prior result, show it so it persists across reruns
 if st.session_state.last_result:
     res = st.session_state.last_result
     st.success(f"Score: **{res['score']} / 100**")
-    # Render feedback with line breaks
     formatted = res["feedback"].replace("\n", "<br>")
     st.markdown(f"**Feedback:**<br>{formatted}", unsafe_allow_html=True)
 
 # -- Feedback box (only after Evaluate) --
 user_eval = None
 sent = None
+
 if st.session_state.show_feedback and st.session_state.last_result:
-    st.markdown("##### 💬 Do you have any feedback about this question?")
-    user_eval = st.text_input("How was this assessment? (optional)", key="user_eval")
+    st.markdown("##### 💬 Rate this interaction (optional)")
+
+    # helper to render stars in options and the selected value
+    def fmt_opt(v):
+        if v is None:
+            return "— (skip)"
+        return "★" * v + "☆" * (5 - v) + f"  ({v}/5)"
+
+    options = [None, 0, 1, 2, 3, 4, 5]
+
+    c1, c2 = st.columns(2)
+    with c1:
+        clarity = st.select_slider("Clarity of feedback", options=[None,0,1,2,3,4,5], value=None, format_func=fmt_opt, key="rate_clarity")
+        credibility = st.select_slider("Credibility of feedback", options=[None,0,1,2,3,4,5], value=None, format_func=fmt_opt, key="rate_credibility")
+    with c2:
+        relevance = st.select_slider("Relevance of feedback", options=[None,0,1,2,3,4,5], value=None, format_func=fmt_opt, key="rate_relevance")
+        overall = st.select_slider("Overall satisfaction", options=[None,0,1,2,3,4,5], value=None, format_func=fmt_opt, key="rate_overall")
+
+    st.markdown("###### Optional comments")
+    user_eval = st.text_input("Add a short comment (optional)", key="user_eval")
     if user_eval:
-        sent = TextBlob(user_eval).sentiment.polarity # REVIEW
+        sent = TextBlob(user_eval).sentiment.polarity
         st.caption(f"Detected sentiment: {sent:+.2f}")
+
 
     # ---- Log / update current question entry ----
     # Build the row using the latest known values
@@ -216,17 +263,37 @@ if st.session_state.show_feedback and st.session_state.last_result:
         "feedback": res["feedback"],
         "user_comment": user_eval if user_eval else None,
         "user_sentiment": sent if user_eval else None,
+        "rate_clarity": st.session_state.get("rate_clarity"),
+        "rate_relevance": st.session_state.get("rate_relevance"),
+        "rate_credibility": st.session_state.get("rate_credibility"),
+        "rate_overall": st.session_state.get("rate_overall"),
     }
 
     # Append once per question; update if the same question is being edited
-    if not st.session_state.log or st.session_state.log[-1]["question"] != q:
+    if not st.session_state.log or st.session_state.log[-1].get("question") != q:
         st.session_state.log.append(row)
     else:
         st.session_state.log[-1] = row
 
+    # Always write with the same columns so ratings don't disappear
     os.makedirs("runs", exist_ok=True)
-    pd.DataFrame(st.session_state.log).to_csv("runs/session_log.csv", index=False)
+    pd.DataFrame(st.session_state.log, columns=COLUMNS).to_csv("runs/session_log.csv", index=False)
     st.caption("Saved to runs/session_log.csv")
+
+# -- Bottom buttons (after feedback section) --
+if st.session_state.show_feedback:
+    st.markdown("<br>", unsafe_allow_html=True)
+    col1b, col2b = st.columns(2)
+    with col1b:
+        eval_again = st.button("Evaluate again", key="eval_bottom")
+    with col2b:
+        st.button("Next question", on_click=next_question_cb, key="next_bottom")
+
+    if eval_again:
+        do_evaluate(st.session_state.student_text, ref, q)  
+        st.rerun()
+
+
 
 # -- End session --
 st.divider()
