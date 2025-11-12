@@ -1,0 +1,873 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2025-11-12">
+    <creator>NetworkX 3.5</creator>
+  </meta>
+  <graph defaultedgetype="directed" mode="static" name="">
+    <attributes mode="static" class="edge">
+      <attribute id="1" title="relation" type="string" />
+    </attributes>
+    <attributes mode="static" class="node">
+      <attribute id="0" title="type" type="string" />
+    </attributes>
+    <nodes>
+      <node id="Prof_Licinia Pulchra" label="Prof_Licinia Pulchra">
+        <attvalues>
+          <attvalue for="0" value="professor" />
+        </attvalues>
+      </node>
+      <node id="Administrative Law" label="Administrative Law">
+        <attvalues>
+          <attvalue for="0" value="course" />
+        </attvalues>
+      </node>
+      <node id="IE University" label="IE University">
+        <attvalues>
+          <attvalue for="0" value="university" />
+        </attvalues>
+      </node>
+      <node id="Other_University" label="Other_University">
+        <attvalues>
+          <attvalue for="0" value="university" />
+        </attvalues>
+      </node>
+      <node id="Other_Degree" label="Other_Degree">
+        <attvalues>
+          <attvalue for="0" value="degree" />
+        </attvalues>
+      </node>
+      <node id="Spain" label="Spain">
+        <attvalues>
+          <attvalue for="0" value="location" />
+        </attvalues>
+      </node>
+      <node id="2014" label="2014">
+        <attvalues>
+          <attvalue for="0" value="year" />
+        </attvalues>
+      </node>
+      <node id="2017" label="2017">
+        <attvalues>
+          <attvalue for="0" value="year" />
+        </attvalues>
+      </node>
+      <node id="2015" label="2015">
+        <attvalues>
+          <attvalue for="0" value="year" />
+        </attvalues>
+      </node>
+      <node id="2021" label="2021">
+        <attvalues>
+          <attvalue for="0" value="year" />
+        </attvalues>
+      </node>
+      <node id="IE Business School" label="IE Business School">
+        <attvalues>
+          <attvalue for="0" value="university" />
+        </attvalues>
+      </node>
+      <node id="Other_Company" label="Other_Company">
+        <attvalues>
+          <attvalue for="0" value="company" />
+        </attvalues>
+      </node>
+      <node id="PwC" label="PwC">
+        <attvalues>
+          <attvalue for="0" value="company" />
+        </attvalues>
+      </node>
+      <node id="Prof_Spurius Horatius Caesar" label="Prof_Spurius Horatius Caesar">
+        <attvalues>
+          <attvalue for="0" value="professor" />
+        </attvalues>
+      </node>
+      <node id="Bachelor in Business Administration" label="Bachelor in Business Administration">
+        <attvalues>
+          <attvalue for="0" value="degree" />
+        </attvalues>
+      </node>
+      <node id="UK" label="UK">
+        <attvalues>
+          <attvalue for="0" value="location" />
+        </attvalues>
+      </node>
+      <node id="2020 – Present" label="2020 – Present">
+        <attvalues>
+          <attvalue for="0" value="year" />
+        </attvalues>
+      </node>
+      <node id="Prof_Lucius Aemilius Naso" label="Prof_Lucius Aemilius Naso">
+        <attvalues>
+          <attvalue for="0" value="professor" />
+        </attvalues>
+      </node>
+      <node id="Other_Location" label="Other_Location">
+        <attvalues>
+          <attvalue for="0" value="location" />
+        </attvalues>
+      </node>
+      <node id="Madrid" label="Madrid">
+        <attvalues>
+          <attvalue for="0" value="location" />
+        </attvalues>
+      </node>
+      <node id="2013" label="2013">
+        <attvalues>
+          <attvalue for="0" value="year" />
+        </attvalues>
+      </node>
+      <node id="1994" label="1994">
+        <attvalues>
+          <attvalue for="0" value="year" />
+        </attvalues>
+      </node>
+      <node id="Prof_Valeria Paulla" label="Prof_Valeria Paulla">
+        <attvalues>
+          <attvalue for="0" value="professor" />
+        </attvalues>
+      </node>
+      <node id="Other_Course" label="Other_Course">
+        <attvalues>
+          <attvalue for="0" value="course" />
+        </attvalues>
+      </node>
+      <node id="Other_Year" label="Other_Year">
+        <attvalues>
+          <attvalue for="0" value="year" />
+        </attvalues>
+      </node>
+      <node id="2011" label="2011">
+        <attvalues>
+          <attvalue for="0" value="year" />
+        </attvalues>
+      </node>
+      <node id="2018 – Present" label="2018 – Present">
+        <attvalues>
+          <attvalue for="0" value="year" />
+        </attvalues>
+      </node>
+      <node id="2012" label="2012">
+        <attvalues>
+          <attvalue for="0" value="year" />
+        </attvalues>
+      </node>
+      <node id="2010" label="2010">
+        <attvalues>
+          <attvalue for="0" value="year" />
+        </attvalues>
+      </node>
+      <node id="Prof_Julia Paulla" label="Prof_Julia Paulla">
+        <attvalues>
+          <attvalue for="0" value="professor" />
+        </attvalues>
+      </node>
+      <node id="PhD" label="PhD">
+        <attvalues>
+          <attvalue for="0" value="degree" />
+        </attvalues>
+      </node>
+      <node id="Prof_Manius Sergius Cicero" label="Prof_Manius Sergius Cicero">
+        <attvalues>
+          <attvalue for="0" value="professor" />
+        </attvalues>
+      </node>
+      <node id="Prof_Fabia Paulla" label="Prof_Fabia Paulla">
+        <attvalues>
+          <attvalue for="0" value="professor" />
+        </attvalues>
+      </node>
+      <node id="Other_Program" label="Other_Program">
+        <attvalues>
+          <attvalue for="0" value="program" />
+        </attvalues>
+      </node>
+      <node id="Ph.D." label="Ph.D.">
+        <attvalues>
+          <attvalue for="0" value="degree" />
+        </attvalues>
+      </node>
+      <node id="2004" label="2004">
+        <attvalues>
+          <attvalue for="0" value="year" />
+        </attvalues>
+      </node>
+      <node id="2008" label="2008">
+        <attvalues>
+          <attvalue for="0" value="year" />
+        </attvalues>
+      </node>
+      <node id="Prof_Spurius Aemilius Lepidus" label="Prof_Spurius Aemilius Lepidus">
+        <attvalues>
+          <attvalue for="0" value="professor" />
+        </attvalues>
+      </node>
+      <node id="Prof_Aulus Horatius Crassus" label="Prof_Aulus Horatius Crassus">
+        <attvalues>
+          <attvalue for="0" value="professor" />
+        </attvalues>
+      </node>
+      <node id="LLM" label="LLM">
+        <attvalues>
+          <attvalue for="0" value="degree" />
+        </attvalues>
+      </node>
+      <node id="be" label="be">
+        <attvalues>
+          <attvalue for="0" value="degree" />
+        </attvalues>
+      </node>
+      <node id="2018" label="2018">
+        <attvalues>
+          <attvalue for="0" value="year" />
+        </attvalues>
+      </node>
+      <node id="2021 – Present" label="2021 – Present">
+        <attvalues>
+          <attvalue for="0" value="year" />
+        </attvalues>
+      </node>
+      <node id="Prof_Flavia Nasa" label="Prof_Flavia Nasa">
+        <attvalues>
+          <attvalue for="0" value="professor" />
+        </attvalues>
+      </node>
+      <node id="2003" label="2003">
+        <attvalues>
+          <attvalue for="0" value="year" />
+        </attvalues>
+      </node>
+      <node id="2016" label="2016">
+        <attvalues>
+          <attvalue for="0" value="year" />
+        </attvalues>
+      </node>
+      <node id="Prof_Numerius Sergius Crassus" label="Prof_Numerius Sergius Crassus">
+        <attvalues>
+          <attvalue for="0" value="professor" />
+        </attvalues>
+      </node>
+      <node id="Law" label="Law">
+        <attvalues>
+          <attvalue for="0" value="course" />
+        </attvalues>
+      </node>
+      <node id="Prof_Servius Horatius Agricola" label="Prof_Servius Horatius Agricola">
+        <attvalues>
+          <attvalue for="0" value="professor" />
+        </attvalues>
+      </node>
+      <node id="Finance" label="Finance">
+        <attvalues>
+          <attvalue for="0" value="course" />
+        </attvalues>
+      </node>
+      <node id="MBA" label="MBA">
+        <attvalues>
+          <attvalue for="0" value="degree" />
+        </attvalues>
+      </node>
+      <node id="USA" label="USA">
+        <attvalues>
+          <attvalue for="0" value="location" />
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+      <edge source="Prof_Licinia Pulchra" target="Administrative Law" id="0">
+        <attvalues>
+          <attvalue for="1" value="teaches" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Licinia Pulchra" target="IE University" id="1">
+        <attvalues>
+          <attvalue for="1" value="teaches_at" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Licinia Pulchra" target="Other_University" id="2">
+        <attvalues>
+          <attvalue for="1" value="studied_at" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Licinia Pulchra" target="Other_Degree" id="3">
+        <attvalues>
+          <attvalue for="1" value="has_degree" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Licinia Pulchra" target="Spain" id="4">
+        <attvalues>
+          <attvalue for="1" value="studied_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Licinia Pulchra" target="2014" id="5">
+        <attvalues>
+          <attvalue for="1" value="graduated_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Licinia Pulchra" target="2017" id="6">
+        <attvalues>
+          <attvalue for="1" value="graduated_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Licinia Pulchra" target="2015" id="7">
+        <attvalues>
+          <attvalue for="1" value="graduated_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Licinia Pulchra" target="2021" id="8">
+        <attvalues>
+          <attvalue for="1" value="graduated_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Licinia Pulchra" target="IE Business School" id="9">
+        <attvalues>
+          <attvalue for="1" value="studied_at" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Licinia Pulchra" target="Other_Company" id="10">
+        <attvalues>
+          <attvalue for="1" value="worked_at" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Licinia Pulchra" target="PwC" id="11">
+        <attvalues>
+          <attvalue for="1" value="worked_at" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Spurius Horatius Caesar" target="IE University" id="12">
+        <attvalues>
+          <attvalue for="1" value="studied_at" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Spurius Horatius Caesar" target="Bachelor in Business Administration" id="13">
+        <attvalues>
+          <attvalue for="1" value="has_degree" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Spurius Horatius Caesar" target="Other_Degree" id="14">
+        <attvalues>
+          <attvalue for="1" value="has_degree" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Spurius Horatius Caesar" target="UK" id="15">
+        <attvalues>
+          <attvalue for="1" value="studied_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Spurius Horatius Caesar" target="Spain" id="16">
+        <attvalues>
+          <attvalue for="1" value="studied_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Spurius Horatius Caesar" target="2017" id="17">
+        <attvalues>
+          <attvalue for="1" value="graduated_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Spurius Horatius Caesar" target="2015" id="18">
+        <attvalues>
+          <attvalue for="1" value="graduated_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Spurius Horatius Caesar" target="2020 – Present" id="19">
+        <attvalues>
+          <attvalue for="1" value="graduated_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Spurius Horatius Caesar" target="Other_University" id="20">
+        <attvalues>
+          <attvalue for="1" value="studied_at" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Spurius Horatius Caesar" target="Other_Company" id="21">
+        <attvalues>
+          <attvalue for="1" value="worked_at" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Lucius Aemilius Naso" target="Other_Degree" id="22">
+        <attvalues>
+          <attvalue for="1" value="has_degree" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Lucius Aemilius Naso" target="Other_Location" id="23">
+        <attvalues>
+          <attvalue for="1" value="studied_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Lucius Aemilius Naso" target="Madrid" id="24">
+        <attvalues>
+          <attvalue for="1" value="studied_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Lucius Aemilius Naso" target="2013" id="25">
+        <attvalues>
+          <attvalue for="1" value="graduated_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Lucius Aemilius Naso" target="1994" id="26">
+        <attvalues>
+          <attvalue for="1" value="graduated_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Lucius Aemilius Naso" target="Other_University" id="27">
+        <attvalues>
+          <attvalue for="1" value="studied_at" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Lucius Aemilius Naso" target="Other_Company" id="28">
+        <attvalues>
+          <attvalue for="1" value="worked_at" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Valeria Paulla" target="Other_Course" id="29">
+        <attvalues>
+          <attvalue for="1" value="teaches" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Valeria Paulla" target="Other_University" id="30">
+        <attvalues>
+          <attvalue for="1" value="studied_at" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Valeria Paulla" target="IE University" id="31">
+        <attvalues>
+          <attvalue for="1" value="studied_at" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Valeria Paulla" target="Other_Degree" id="32">
+        <attvalues>
+          <attvalue for="1" value="has_degree" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Valeria Paulla" target="Other_Location" id="33">
+        <attvalues>
+          <attvalue for="1" value="studied_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Valeria Paulla" target="Madrid" id="34">
+        <attvalues>
+          <attvalue for="1" value="studied_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Valeria Paulla" target="Other_Year" id="35">
+        <attvalues>
+          <attvalue for="1" value="graduated_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Valeria Paulla" target="2011" id="36">
+        <attvalues>
+          <attvalue for="1" value="graduated_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Valeria Paulla" target="2014" id="37">
+        <attvalues>
+          <attvalue for="1" value="graduated_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Valeria Paulla" target="2018 – Present" id="38">
+        <attvalues>
+          <attvalue for="1" value="graduated_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Valeria Paulla" target="2012" id="39">
+        <attvalues>
+          <attvalue for="1" value="graduated_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Valeria Paulla" target="2010" id="40">
+        <attvalues>
+          <attvalue for="1" value="graduated_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Julia Paulla" target="IE University" id="41">
+        <attvalues>
+          <attvalue for="1" value="studied_at" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Julia Paulla" target="Other_University" id="42">
+        <attvalues>
+          <attvalue for="1" value="studied_at" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Julia Paulla" target="Other_Degree" id="43">
+        <attvalues>
+          <attvalue for="1" value="has_degree" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Julia Paulla" target="PhD" id="44">
+        <attvalues>
+          <attvalue for="1" value="has_degree" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Julia Paulla" target="Other_Year" id="45">
+        <attvalues>
+          <attvalue for="1" value="graduated_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Julia Paulla" target="Other_Company" id="46">
+        <attvalues>
+          <attvalue for="1" value="worked_at" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Manius Sergius Cicero" target="IE Business School" id="47">
+        <attvalues>
+          <attvalue for="1" value="studied_at" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Manius Sergius Cicero" target="Other_Degree" id="48">
+        <attvalues>
+          <attvalue for="1" value="has_degree" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Manius Sergius Cicero" target="Other_Location" id="49">
+        <attvalues>
+          <attvalue for="1" value="studied_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Manius Sergius Cicero" target="Spain" id="50">
+        <attvalues>
+          <attvalue for="1" value="studied_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Manius Sergius Cicero" target="Other_Year" id="51">
+        <attvalues>
+          <attvalue for="1" value="graduated_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Manius Sergius Cicero" target="Other_University" id="52">
+        <attvalues>
+          <attvalue for="1" value="studied_at" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Manius Sergius Cicero" target="Other_Company" id="53">
+        <attvalues>
+          <attvalue for="1" value="worked_at" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Fabia Paulla" target="Other_Course" id="54">
+        <attvalues>
+          <attvalue for="1" value="teaches" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Fabia Paulla" target="Other_Program" id="55">
+        <attvalues>
+          <attvalue for="1" value="teaches_in_program" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Fabia Paulla" target="IE University" id="56">
+        <attvalues>
+          <attvalue for="1" value="studied_at" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Fabia Paulla" target="Ph.D." id="57">
+        <attvalues>
+          <attvalue for="1" value="has_degree" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Fabia Paulla" target="Other_Degree" id="58">
+        <attvalues>
+          <attvalue for="1" value="has_degree" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Fabia Paulla" target="PhD" id="59">
+        <attvalues>
+          <attvalue for="1" value="has_degree" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Fabia Paulla" target="Other_Location" id="60">
+        <attvalues>
+          <attvalue for="1" value="studied_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Fabia Paulla" target="2004" id="61">
+        <attvalues>
+          <attvalue for="1" value="graduated_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Fabia Paulla" target="2008" id="62">
+        <attvalues>
+          <attvalue for="1" value="graduated_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Fabia Paulla" target="Other_Year" id="63">
+        <attvalues>
+          <attvalue for="1" value="graduated_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Fabia Paulla" target="Other_University" id="64">
+        <attvalues>
+          <attvalue for="1" value="studied_at" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Fabia Paulla" target="Other_Company" id="65">
+        <attvalues>
+          <attvalue for="1" value="worked_at" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Spurius Aemilius Lepidus" target="Other_Course" id="66">
+        <attvalues>
+          <attvalue for="1" value="teaches" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Spurius Aemilius Lepidus" target="IE University" id="67">
+        <attvalues>
+          <attvalue for="1" value="worked_at" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Spurius Aemilius Lepidus" target="Other_University" id="68">
+        <attvalues>
+          <attvalue for="1" value="studied_at" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Spurius Aemilius Lepidus" target="Other_Degree" id="69">
+        <attvalues>
+          <attvalue for="1" value="has_degree" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Spurius Aemilius Lepidus" target="Spain" id="70">
+        <attvalues>
+          <attvalue for="1" value="worked_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Spurius Aemilius Lepidus" target="Madrid" id="71">
+        <attvalues>
+          <attvalue for="1" value="studied_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Spurius Aemilius Lepidus" target="Other_Location" id="72">
+        <attvalues>
+          <attvalue for="1" value="worked_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Spurius Aemilius Lepidus" target="Other_Year" id="73">
+        <attvalues>
+          <attvalue for="1" value="graduated_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Spurius Aemilius Lepidus" target="2012" id="74">
+        <attvalues>
+          <attvalue for="1" value="graduated_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Spurius Aemilius Lepidus" target="Other_Company" id="75">
+        <attvalues>
+          <attvalue for="1" value="worked_at" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Aulus Horatius Crassus" target="Other_University" id="76">
+        <attvalues>
+          <attvalue for="1" value="studied_at" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Aulus Horatius Crassus" target="Other_Degree" id="77">
+        <attvalues>
+          <attvalue for="1" value="has_degree" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Aulus Horatius Crassus" target="LLM" id="78">
+        <attvalues>
+          <attvalue for="1" value="has_degree" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Aulus Horatius Crassus" target="be" id="79">
+        <attvalues>
+          <attvalue for="1" value="has_degree" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Aulus Horatius Crassus" target="Spain" id="80">
+        <attvalues>
+          <attvalue for="1" value="worked_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Aulus Horatius Crassus" target="2018" id="81">
+        <attvalues>
+          <attvalue for="1" value="graduated_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Aulus Horatius Crassus" target="Other_Year" id="82">
+        <attvalues>
+          <attvalue for="1" value="graduated_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Aulus Horatius Crassus" target="2021 – Present" id="83">
+        <attvalues>
+          <attvalue for="1" value="graduated_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Aulus Horatius Crassus" target="Other_Location" id="84">
+        <attvalues>
+          <attvalue for="1" value="worked_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Aulus Horatius Crassus" target="Other_Company" id="85">
+        <attvalues>
+          <attvalue for="1" value="worked_at" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Flavia Nasa" target="Other_Course" id="86">
+        <attvalues>
+          <attvalue for="1" value="teaches" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Flavia Nasa" target="IE University" id="87">
+        <attvalues>
+          <attvalue for="1" value="studied_at" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Flavia Nasa" target="Other_University" id="88">
+        <attvalues>
+          <attvalue for="1" value="studied_at" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Flavia Nasa" target="Other_Degree" id="89">
+        <attvalues>
+          <attvalue for="1" value="has_degree" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Flavia Nasa" target="Other_Location" id="90">
+        <attvalues>
+          <attvalue for="1" value="worked_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Flavia Nasa" target="Madrid" id="91">
+        <attvalues>
+          <attvalue for="1" value="worked_at" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Flavia Nasa" target="2014" id="92">
+        <attvalues>
+          <attvalue for="1" value="graduated_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Flavia Nasa" target="Other_Year" id="93">
+        <attvalues>
+          <attvalue for="1" value="graduated_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Flavia Nasa" target="2003" id="94">
+        <attvalues>
+          <attvalue for="1" value="graduated_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Flavia Nasa" target="2021 – Present" id="95">
+        <attvalues>
+          <attvalue for="1" value="graduated_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Flavia Nasa" target="2016" id="96">
+        <attvalues>
+          <attvalue for="1" value="graduated_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Flavia Nasa" target="Other_Company" id="97">
+        <attvalues>
+          <attvalue for="1" value="worked_at" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Numerius Sergius Crassus" target="Law" id="98">
+        <attvalues>
+          <attvalue for="1" value="teaches" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Numerius Sergius Crassus" target="Other_University" id="99">
+        <attvalues>
+          <attvalue for="1" value="studied_at" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Numerius Sergius Crassus" target="IE University" id="100">
+        <attvalues>
+          <attvalue for="1" value="studied_at" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Numerius Sergius Crassus" target="Other_Degree" id="101">
+        <attvalues>
+          <attvalue for="1" value="has_degree" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Numerius Sergius Crassus" target="Spain" id="102">
+        <attvalues>
+          <attvalue for="1" value="worked_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Numerius Sergius Crassus" target="Other_Location" id="103">
+        <attvalues>
+          <attvalue for="1" value="studied_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Numerius Sergius Crassus" target="Other_Year" id="104">
+        <attvalues>
+          <attvalue for="1" value="graduated_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Numerius Sergius Crassus" target="Other_Company" id="105">
+        <attvalues>
+          <attvalue for="1" value="worked_at" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Servius Horatius Agricola" target="Finance" id="106">
+        <attvalues>
+          <attvalue for="1" value="teaches" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Servius Horatius Agricola" target="IE University" id="107">
+        <attvalues>
+          <attvalue for="1" value="studied_at" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Servius Horatius Agricola" target="MBA" id="108">
+        <attvalues>
+          <attvalue for="1" value="has_degree" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Servius Horatius Agricola" target="Other_Location" id="109">
+        <attvalues>
+          <attvalue for="1" value="studied_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Servius Horatius Agricola" target="USA" id="110">
+        <attvalues>
+          <attvalue for="1" value="studied_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Servius Horatius Agricola" target="Spain" id="111">
+        <attvalues>
+          <attvalue for="1" value="studied_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Servius Horatius Agricola" target="Madrid" id="112">
+        <attvalues>
+          <attvalue for="1" value="studied_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Servius Horatius Agricola" target="2018" id="113">
+        <attvalues>
+          <attvalue for="1" value="graduated_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Servius Horatius Agricola" target="Other_Year" id="114">
+        <attvalues>
+          <attvalue for="1" value="graduated_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Servius Horatius Agricola" target="2021" id="115">
+        <attvalues>
+          <attvalue for="1" value="graduated_in" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Servius Horatius Agricola" target="Other_University" id="116">
+        <attvalues>
+          <attvalue for="1" value="studied_at" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Servius Horatius Agricola" target="IE Business School" id="117">
+        <attvalues>
+          <attvalue for="1" value="studied_at" />
+        </attvalues>
+      </edge>
+      <edge source="Prof_Servius Horatius Agricola" target="Other_Company" id="118">
+        <attvalues>
+          <attvalue for="1" value="worked_at" />
+        </attvalues>
+      </edge>
+    </edges>
+  </graph>
+</gexf>

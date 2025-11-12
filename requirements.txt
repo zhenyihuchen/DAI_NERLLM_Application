@@ -12,3 +12,5 @@ numpy>=1.26
 textblob>=0.18
 groq>=0.11
 python-dotenv>=1.0
+networkx
+gliner
