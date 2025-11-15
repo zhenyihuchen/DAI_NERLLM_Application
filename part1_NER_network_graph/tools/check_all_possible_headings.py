@@ -3,7 +3,7 @@ import re
 from collections import Counter
 
 # Load dataset
-df = pd.read_csv('data/teachers_db_practice.csv')
+df = pd.read_csv('../data/teachers_db_practice.csv')
 
 # Extract all h4 headings
 all_headings = []
