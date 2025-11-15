@@ -8,7 +8,7 @@ from collections import Counter, defaultdict
 
 def build_knowledge_graph(
     input_json,
-    output_gexf="part1_NER_Network Graph/results/professor_network.gexf",
+    output_gexf="part1_NER_network_graph/results/professor_network.gexf",
     save_plot=True,
     threshold_ratio=0.15,
     teacher_sample_ratio=0.01  # <== NEW PARAMETER
@@ -204,7 +204,7 @@ def build_knowledge_graph(
     print(f"✅ Graph built (sampled 20% professors): {G.number_of_nodes()} nodes, {G.number_of_edges()} edges")
 
     # ------------------------------------------------------------------
-    # 🔹 STEP 5: Save & Visualize (same)
+    # 🔹 STEP 5: Save & Visualize (Enhanced)
     # ------------------------------------------------------------------
     os.makedirs(os.path.dirname(output_gexf), exist_ok=True)
     nx.write_gexf(G, output_gexf)
@@ -212,21 +212,77 @@ def build_knowledge_graph(
 
     if save_plot:
         try:
-            plt.figure(figsize=(10, 10))
-            pos = nx.spring_layout(G, k=0.6)
-            node_colors = [
-                "lightblue" if G.nodes[n]["type"] == "professor" else
-                "lightgreen" if G.nodes[n]["type"] == "university" else
-                "orange" if G.nodes[n]["type"] == "company" else
-                "violet" if G.nodes[n]["type"] == "course" else
-                "lightgray"
-                for n in G.nodes
-            ]
-            nx.draw(G, pos, with_labels=False, node_color=node_colors, node_size=130, alpha=0.8, arrows=False)
-            plt.title("Knowledge Graph (20% Professors + Low-Frequency Entities Aggregated)")
-            plt.savefig("part1_NER_Network Graph/results/professor_network_filtered.png", dpi=300, bbox_inches="tight")
-            print("📉 Visualization saved as part1_NER_Network Graph/results/professor_network_filtered.png")
+            print("🎨 Generating enhanced visualization...")
+            plt.figure(figsize=(12, 12))
+            pos = nx.spring_layout(G, k=0.6, seed=42)
+
+            # Define colors for node types
+            color_map = {
+                "professor": "skyblue",
+                "university": "lightgreen",
+                "company": "orange",
+                "course": "violet",
+                "program": "turquoise",
+                "degree": "pink",
+                "location": "lightgray",
+                "year": "beige"
+            }
+
+            # Assign colors per node
+            node_colors = [color_map.get(G.nodes[n]["type"], "gray") for n in G.nodes]
+            node_sizes = [max(100, 80 + 10 * G.degree(n)) for n in G.nodes]
+
+            # Draw edges
+            nx.draw_networkx_edges(G, pos, alpha=0.25, width=0.5, arrows=False)
+
+            # Draw nodes
+            nx.draw_networkx_nodes(
+                G, pos,
+                node_color=node_colors,
+                node_size=node_sizes,
+                alpha=0.9
+            )
+
+            # Prepare labels (name + edge count for non-professors)
+            labels = {}
+            for n in G.nodes:
+                n_type = G.nodes[n]["type"]
+                if n_type == "professor":
+                    labels[n] = n.replace("Prof_", "")  # just the name
+                else:
+                    # Show global frequency (from full dataset)
+                    global_count = 0
+                    for fdict in freq_tables.values():
+                        if n in fdict:
+                            global_count = fdict[n]
+                            break
+                    labels[n] = f"{n} ({global_count})"
+
+            # Draw labels (small font, slight offset)
+            nx.draw_networkx_labels(
+                G, pos, labels=labels, font_size=8, font_color="black",
+                verticalalignment="bottom"
+            )
+
+            # Create legend automatically
+            for t, c in color_map.items():
+                plt.scatter([], [], c=c, label=t, s=200, edgecolors="none")
+            plt.legend(
+                scatterpoints=1, frameon=False, fontsize=9,
+                loc="upper right", title="Node Type", title_fontsize=10
+            )
+
+            plt.title("Knowledge Graph (Sampled Professors + Global Edge Counts)", fontsize=13)
+            plt.axis("off")
+            plt.tight_layout()
+
+            output_img = "part1_NER_network_graph/results/professor_network_enhanced.png"
+            plt.savefig(output_img, dpi=300, bbox_inches="tight")
+            plt.close()
+            print(f"📊 Enhanced visualization saved as {output_img}")
+
         except Exception as e:
             print(f"⚠️ Visualization skipped: {e}")
+
 
     return G
