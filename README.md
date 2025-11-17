@@ -67,7 +67,6 @@ Evaluates student answers against reference answers using LLM-based scoring acro
    Create a `.env` file with your Groq API key:
    ```
    GROQ_API_KEY=your_groq_api_key_here
-   GROQ_MODEL=llama-3.1-8b-instant
    ```
 
 3. **Run the Streamlit application:**
