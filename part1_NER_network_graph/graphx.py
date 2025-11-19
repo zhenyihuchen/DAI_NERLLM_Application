@@ -5,13 +5,14 @@ import pandas as pd
 import os
 import random
 from collections import Counter, defaultdict
+import statistics
 
 def build_knowledge_graph(
     input_json,
     output_gexf="part1_NER_network_graph/results/professor_network.gexf",
     save_plot=True,
     threshold_ratio=0.15,
-    teacher_sample_ratio=0.01  # <== NEW PARAMETER
+    teacher_sample_ratio=0.01
 ):
     """
     Build a knowledge graph from merged entity results.
@@ -25,9 +26,9 @@ def build_knowledge_graph(
     with open(input_json, "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    # ------------------------------------------------------------------
-    # 🔹 STEP 1: Gather all entities by category (same as before)
-    # ------------------------------------------------------------------
+
+    #STEP 1: Gather all entities by category (same as before)
+
     print("🔍 Collecting entity frequencies...")
     entities_by_type = defaultdict(list)
 
@@ -78,9 +79,9 @@ def build_knowledge_graph(
     for etype, thr in thresholds.items():
         print(f"  {etype:<10}: {thr:.2f}")
 
-    # ------------------------------------------------------------------
-    # 🔹 STEP 2: Replace rare entities (same as before)
-    # ------------------------------------------------------------------
+
+    #STEP 2: Replace rare entities (same as before)
+
     print("🧹 Aggregating low-frequency entities before graph construction...")
 
     def aggregate_entity(entity, etype):
@@ -139,17 +140,14 @@ def build_knowledge_graph(
 
     print("✅ Entities aggregated. Proceeding to graph construction...")
 
-    # ------------------------------------------------------------------
-    # 🔹 STEP 3: Sample professors (NEW)
-    # ------------------------------------------------------------------
+    #STEP 3: Sample professors
+
     total_profs = len(data)
     sample_size = max(1, int(total_profs * teacher_sample_ratio))
     sampled_data = random.sample(data, sample_size)
     print(f"🎯 Using {sample_size} professors out of {total_profs} ({teacher_sample_ratio*100:.0f}%) for the graph.")
 
-    # ------------------------------------------------------------------
-    # 🔹 STEP 4: Build Graph (same as before, but with sampled_data)
-    # ------------------------------------------------------------------
+    #STEP 4: Build Graph
     G = nx.DiGraph()
 
     for prof in sampled_data:
@@ -203,9 +201,7 @@ def build_knowledge_graph(
 
     print(f"✅ Graph built (sampled 20% professors): {G.number_of_nodes()} nodes, {G.number_of_edges()} edges")
 
-    # ------------------------------------------------------------------
-    # 🔹 STEP 5: Save & Visualize (Enhanced)
-    # ------------------------------------------------------------------
+    # 🔹 STEP 5: Save & Visualize
     os.makedirs(os.path.dirname(output_gexf), exist_ok=True)
     nx.write_gexf(G, output_gexf)
     print(f"💾 Graph saved to: {output_gexf}")
@@ -243,14 +239,14 @@ def build_knowledge_graph(
                 alpha=0.9
             )
 
-            # Prepare labels (name + edge count for non-professors)
+            # Prepare labels
             labels = {}
             for n in G.nodes:
                 n_type = G.nodes[n]["type"]
                 if n_type == "professor":
-                    labels[n] = n.replace("Prof_", "")  # just the name
+                    labels[n] = n.replace("Prof_", "")
                 else:
-                    # Show global frequency (from full dataset)
+                    # Show global frequency
                     global_count = 0
                     for fdict in freq_tables.values():
                         if n in fdict:
@@ -258,7 +254,7 @@ def build_knowledge_graph(
                             break
                     labels[n] = f"{n} ({global_count})"
 
-            # Draw labels (small font, slight offset)
+            # Draw labels
             nx.draw_networkx_labels(
                 G, pos, labels=labels, font_size=8, font_color="black",
                 verticalalignment="bottom"
@@ -286,3 +282,49 @@ def build_knowledge_graph(
 
 
     return G
+
+#Compare graph metrics function
+
+def compare_graph_metrics(raw_graph, reduced_graph):
+    """Compare key network statistics between full and reduced graphs."""
+
+    def graph_stats(G):
+        # Average degree
+        degrees = [d for _, d in G.degree()]
+        avg_degree = statistics.mean(degrees) if degrees else 0
+
+        # Local & global centralities
+        local_centrality = nx.degree_centrality(G)
+        global_centrality = nx.betweenness_centrality(G, k=min(100, len(G)))
+
+        # Top nodes by betweenness
+        top_between = sorted(global_centrality.items(), key=lambda x: x[1], reverse=True)[:10]
+
+        return {
+            "avg_degree": avg_degree,
+            "local_centrality": local_centrality,
+            "global_centrality": global_centrality,
+            "top_between": top_between
+        }
+
+    print("\n📈 Calculating metrics for RAW graph...")
+    raw_stats = graph_stats(raw_graph)
+
+    print("\n📉 Calculating metrics for REDUCED graph...")
+    red_stats = graph_stats(reduced_graph)
+
+    print("\n=== Graph Comparison ===")
+    print(f"Average degree (raw):     {raw_stats['avg_degree']:.2f}")
+    print(f"Average degree (reduced): {red_stats['avg_degree']:.2f}")
+
+    # Centralization proxy: sum of centralities / n
+    raw_centralization = sum(raw_stats["global_centrality"].values()) / len(raw_graph)
+    red_centralization = sum(red_stats["global_centrality"].values()) / len(reduced_graph)
+    print(f"Global centralization (raw):     {raw_centralization:.4f}")
+    print(f"Global centralization (reduced): {red_centralization:.4f}")
+
+    print("\nTop 5 nodes by betweenness (reduced):")
+    for node, val in red_stats["top_between"][:5]:
+        print(f"  {node:<40}  {val:.5f}")
+
+    return raw_stats, red_stats
