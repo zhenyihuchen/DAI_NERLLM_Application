@@ -11,32 +11,39 @@ def main():
     # ========================================================================
     # SECTION 1: DATA PREPROCESSING
     # ========================================================================
-    # Step 1: Load preprocessed dataset
-    print("Step 1: Loading preprocessed dataset...")
-    #csv_path = 'part1_NER_network_graph/data/teachers_db_practice_processed.csv'
+    # Step 1: Preprocess raw dataset
+    print("Step 1: Preprocessing raw dataset...")
+    raw_csv_path = 'data/teachers_db_practice.csv'
+    processed_csv_path = 'data/teachers_db_practice_processed.csv'
+    
     import pandas as pd
-    #df_processed = pd.read_csv(csv_path)
+    df_processed = preprocess_dataset(raw_csv_path)
+    
+    # Save preprocessed dataset
+    df_processed.to_csv(processed_csv_path, index=False)
+    print(f"Preprocessed dataset saved to {processed_csv_path}")
+    print(f"Dataset shape: {df_processed.shape}")
     
     # ========================================================================
     # SECTION 2: GLINER EXTRACTION
     # ========================================================================
     # Step 2: Extract entities using GLiNER
     print("\nStep 2: Extracting entities with GLiNER...")
-    #gliner_results = extract_entities_gliner(df_processed)
+    gliner_results = extract_entities_gliner(df_processed)
     
     # Save GLiNER results
-    #gliner_output_path = 'results/gliner_entities_results.json'
-    #with open(gliner_output_path, 'w') as f:
-    #    json.dump(gliner_results, f, indent=2)
-    #print(f"GLiNER results saved to {gliner_output_path}")
+    gliner_output_path = 'results/gliner_entities_results.json'
+    with open(gliner_output_path, 'w') as f:
+        json.dump(gliner_results, f, indent=2)
+    print(f"GLiNER results saved to {gliner_output_path}")
     
     # ========================================================================
     # SECTION 3: BERT+REGEX EXTRACTION
     # ========================================================================
     # Step 3: Extract entities using BERT + Regex approach
     print("\nStep 3: Extracting entities with BERT + Regex...")
-    #processor = HybridNERProcessor()
-    #bert_regex_results = []
+    processor = HybridNERProcessor()
+    bert_regex_results = []
     
     #for idx, row in df_processed.iterrows():
     #    print(f"Processing Professor {idx+1}: {row.get('alias', 'Unknown')}")
@@ -111,8 +118,8 @@ def main():
     # Step 5: Generate social network graph from extracted entities
     print("\nStep 5: Generating network graph...")
 
-    merged_json_path = 'part1_NER_network_graph/results/merged_entities_results.json'
-    output_gexf = 'part1_NER_network_graph/results/professor_network.gexf'
+    merged_json_path = 'results/merged_entities_results.json'
+    output_gexf = 'results/professor_network.gexf'
 
     try:
         raw_G = build_knowledge_graph(merged_json_path, output_gexf, teacher_sample_ratio = 1.0, threshold_ratio = 1.0)
