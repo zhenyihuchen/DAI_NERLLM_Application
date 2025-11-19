@@ -118,20 +118,4 @@ def preprocess_dataset(csv_path):
         lambda x: extract_section_content(x, corporate_experience_headings)
     )
 
-# ============================================================================
-# SECTION 5: OUTPUT AND STATISTICS
-# ============================================================================
-    
-    # Save processed dataset
-    import os
-    filename = os.path.basename(csv_path).replace('.csv', '_processed.csv')
-    output_path = os.path.join(os.path.dirname(csv_path), filename)
-    df_processed.to_csv(output_path, index=False)
-    
-    print(f"Processed {len(df_processed)} rows")
-    print(f"Academic Experience sections found: {(df_processed['academic_experience'] != '').sum()}")
-    print(f"Academic Background sections found: {(df_processed['academic_background'] != '').sum()}")
-    print(f"Corporate Experience sections found: {(df_processed['corporate_experience'] != '').sum()}")
-    print(f"Saved to: {output_path}")
-    
     return df_processed
