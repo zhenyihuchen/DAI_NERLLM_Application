@@ -45,23 +45,23 @@ def main():
     processor = HybridNERProcessor()
     bert_regex_results = []
     
-    #for idx, row in df_processed.iterrows():
-    #    print(f"Processing Professor {idx+1}: {row.get('alias', 'Unknown')}")
+    for idx, row in df_processed.iterrows():
+        print(f"Processing Professor {idx+1}: {row.get('alias', 'Unknown')}")
         
-    #    html_content = row.get('full_info', '')
-    #    prof_id = idx  # Use dataset index starting from 0
-    #    alias = row.get('alias', f'Professor_{idx}')
+        html_content = row.get('full_info', '')
+        prof_id = idx  # Use dataset index starting from 0
+        alias = row.get('alias', f'Professor_{idx}')
         
-    #    if html_content:
-    #        result = processor.process_professor(html_content, prof_id, alias)
-    #        bert_regex_results.append(result)
+        if html_content:
+            result = processor.process_professor(html_content, prof_id, alias)
+            bert_regex_results.append(result)
     
     # Save BERT+Regex results
-    #bert_regex_output_path = 'results/bert_regex_entities_results.json'
-    #with open(bert_regex_output_path, 'w') as f:
-    #    json.dump(bert_regex_results, f, indent=2)
-    #print(f"BERT+Regex results saved to {bert_regex_output_path}")
-    #print(f"Completed NER extraction for {len(bert_regex_results)} rows")
+    bert_regex_output_path = 'results/bert_regex_entities_results.json'
+    with open(bert_regex_output_path, 'w') as f:
+        json.dump(bert_regex_results, f, indent=2)
+    print(f"BERT+Regex results saved to {bert_regex_output_path}")
+    print(f"Completed NER extraction for {len(bert_regex_results)} rows")
     
     # ========================================================================
     # SECTION 4: ENTITY MERGING (ACTIVE)
@@ -69,48 +69,48 @@ def main():
     print("\nStep 4: Merging GLiNER and BERT+Regex results...")
     
     # File paths
-    #gliner_file = 'results/gliner_entities_results.json'
-    #bert_file = 'results/bert_regex_entities_results.json'
-    #output_file = 'results/merged_entities_results.json'
+    gliner_file = 'results/gliner_entities_results.json'
+    bert_file = 'results/bert_regex_entities_results.json'
+    output_file = 'results/merged_entities_results.json'
     
-    #try:
+    try:
     #    # Load results
-    #    print("Loading GLiNER and BERT+Regex results...")
-    #    gliner_results, bert_results = load_results_from_files(gliner_file, bert_file)
+        print("Loading GLiNER and BERT+Regex results...")
+        gliner_results, bert_results = load_results_from_files(gliner_file, bert_file)
         
-    #    print(f"GLiNER results: {len(gliner_results)} entries")
-    #    print(f"BERT+Regex results: {len(bert_results)} entries")
+        print(f"GLiNER results: {len(gliner_results)} entries")
+        print(f"BERT+Regex results: {len(bert_results)} entries")
         
         # Merge results
-    #    print("Merging results...")
-    #    merged_results = merge_entity_results(gliner_results, bert_results)
+        print("Merging results...")
+        merged_results = merge_entity_results(gliner_results, bert_results)
         
         # Save merged results
-    #    print(f"Saving merged results to {output_file}...")
-    #    save_merged_results(merged_results, output_file)
+        print(f"Saving merged results to {output_file}...")
+        save_merged_results(merged_results, output_file)
         
-    #    print(f"Successfully merged {len(merged_results)} entries")
+        print(f"Successfully merged {len(merged_results)} entries")
         
         # Print summary statistics
-    #    total_entities = 0
-    #    for result in merged_results:
-    #        for section in ['academic_experience', 'academic_background', 'corporate_experience']:
-    #            for category in result[section]:
-    #                total_entities += len(result[section][category])
+        total_entities = 0
+        for result in merged_results:
+            for section in ['academic_experience', 'academic_background', 'corporate_experience']:
+                for category in result[section]:
+                    total_entities += len(result[section][category])
         
-    #    print(f"Total entities in merged results: {total_entities}")
+        print(f"Total entities in merged results: {total_entities}")
         
         # Show sample merged results
-    #    print("\nSample merged results:")
-    #    for i in range(min(2, len(merged_results))):
-    #        print(f"\nRow {i} - {merged_results[i]['alias']}:")
-    #        print(f"Academic Experience: {merged_results[i]['academic_experience']}")
-    #        print(f"Academic Background: {merged_results[i]['academic_background']}")
-    #        print(f"Corporate Experience: {merged_results[i]['corporate_experience']}")
+        print("\nSample merged results:")
+        for i in range(min(2, len(merged_results))):
+            print(f"\nRow {i} - {merged_results[i]['alias']}:")
+            print(f"Academic Experience: {merged_results[i]['academic_experience']}")
+            print(f"Academic Background: {merged_results[i]['academic_background']}")
+            print(f"Corporate Experience: {merged_results[i]['corporate_experience']}")
         
-    #except Exception as e:
-    #    print(f"Error during merging: {str(e)}")
-    #    raise
+    except Exception as e:
+        print(f"Error during merging: {str(e)}")
+        raise
     
     # ========================================================================
     # SECTION 5: NETWORK GRAPH ANALYSIS
